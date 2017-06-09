@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/org.linphone"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mobi_action_bar_height"
+        android:background="@color/main_app_color" >
+
+        <com.rey.material.widget.Button
+            android:id="@+id/back_button"
+            style="@style/FlatButtonRippleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:drawableLeft="@drawable/bot_back_arrow"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="@string/mnp_sequential_ring"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/app_text_action_back" />
+
+        <com.rey.material.widget.Button
+            android:id="@+id/save_button"
+            style="@style/FlatButtonRippleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="@string/mnp_save"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/app_text_action_back" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@color/mobi_divider"
+        android:dividerHeight="1dp" >
+    </ListView>
+
+</LinearLayout>

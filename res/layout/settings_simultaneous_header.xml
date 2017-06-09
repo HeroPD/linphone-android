@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/basic_listview_item_height" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/setting_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:text="@string/mnp_active"
+                android:textColor="@color/app_main_text"
+                android:textSize="@dimen/app_text_large" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toLeftOf="@+id/switch_active"
+            android:background="@android:color/holo_blue_light" />
+
+        <com.rey.material.widget.Switch
+            android:id="@+id/switch_active"
+            style="@style/Material.Widget.Switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:checked="false"
+            android:gravity="center"
+            android:padding="16dp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/mobi_divider" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/basic_listview_item_height" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:text="@string/mnp_ring_if_on_call"
+                android:textColor="@color/app_main_text"
+                android:textSize="@dimen/app_text_large" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toLeftOf="@+id/switch_active1"
+            android:background="@android:color/holo_blue_light" />
+
+        <com.rey.material.widget.Switch
+            android:id="@+id/switch_active1"
+            style="@style/Material.Widget.Switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:checked="false"
+            android:gravity="center"
+            android:padding="16dp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/mobi_divider" >
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/separator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/numpad_background_top"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" 
+        android:text="@string/mnp_locations"/>
+
+</LinearLayout>

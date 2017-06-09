@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/background_pattern"
+        android:padding="8dp" >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="mnp75 logo"
+            android:src="@drawable/mnp_logo" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/mobi_chat_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/footer"
+        android:layout_below="@+id/header"
+        android:divider="@color/mobi_divider"
+        android:dividerHeight="1dp"
+        android:stackFromBottom="true"
+        android:transcriptMode="normal" >
+
+    </ListView>
+
+    
+
+    <LinearLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:padding="10dp" >
+
+        <EditText
+            android:id="@+id/mobi_text_message"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:ems="10"
+            android:hint="Enter message"
+            android:textColor="@android:color/black" >
+
+            <requestFocus />
+        </EditText>
+
+        <Button
+            android:id="@+id/mobi_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send" />
+    </LinearLayout>
+
+</RelativeLayout>

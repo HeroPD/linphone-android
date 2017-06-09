@@ -405,10 +405,6 @@ public class LinphoneContact implements Serializable, Comparable<LinphoneContact
 		return friend;
 	}
 
-	public LinphoneFriend getLinphoneFriend() {
-		return friend;
-	}
-
 	private void createOrUpdateFriend() {
 		boolean created = false;
 		LinphoneCore lc = LinphoneManager.getLcIfManagerNotDestroyedOrNull();
@@ -578,13 +574,6 @@ public class LinphoneContact implements Serializable, Comparable<LinphoneContact
 	public void setFriend(LinphoneFriend f) {
 		friend = f;
 		((LinphoneFriendImpl)friend).setUserData(this);
-	}
-
-	public void getAndroidIds() {
-		androidRawId = findRawContactID();
-		if (LinphoneManager.getInstance().getContext().getResources().getBoolean(R.bool.use_linphone_tag)) {
-			androidTagId = findLinphoneRawContactId();
-		}
 	}
 
 	public void getAndroidIds() {

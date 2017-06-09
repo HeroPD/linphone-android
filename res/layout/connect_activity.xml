@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical" >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mobi_action_bar_height"
+        android:background="@color/main_app_color" >
+
+        <com.rey.material.widget.Button
+            android:id="@+id/back_button"
+            style="@style/FlatButtonRippleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:drawableLeft="@drawable/bot_back_arrow"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="@string/mnp_connect"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/app_text_action_back" />
+
+        <com.rey.material.widget.Button
+            android:id="@+id/save_button"
+            style="@style/FlatButtonRippleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:paddingLeft="5dp"
+            android:visibility="gone"
+            android:paddingRight="5dp"
+            android:text="@string/mnp_connect"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/app_text_action_back" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" 
+        android:gravity="center_horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/mnp_connect_title" />
+
+        <EditText
+            android:id="@+id/phonenumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="@string/mnp_enter_number"
+            android:inputType="number"
+            android:ems="10" >
+
+            <requestFocus />
+        </EditText>
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/mnp_password"
+            android:layout_marginTop="5dp"
+            android:inputType="textPassword"
+            android:ems="10" />
+        
+		 <com.rey.material.widget.Button
+            android:id="@+id/connect_button"
+            style="@style/RaiseWaveButtonRippleStyle"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mnp_connect"
+            android:textColor="@android:color/primary_text_light"
+            android:textSize="@dimen/app_text_action_back" />
+    </LinearLayout>
+</LinearLayout>

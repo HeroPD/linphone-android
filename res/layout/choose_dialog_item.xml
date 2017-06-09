@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/org.linphone"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:background="@android:color/transparent"
+    android:gravity="center_vertical"
+    android:orientation="vertical" >
+
+    <io.karim.MaterialRippleLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:mrlRippleColor="@color/main_app_effect_color" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical" >
+
+            <com.rey.material.widget.RadioButton
+                android:id="@+id/radio"
+                style="@style/RadioButtonDrawable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:gravity="center_vertical"
+                android:text="1"
+                android:textSize="@dimen/app_text_medium" />
+        </LinearLayout>
+    </io.karim.MaterialRippleLayout>
+
+</LinearLayout>

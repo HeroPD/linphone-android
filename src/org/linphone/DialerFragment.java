@@ -17,6 +17,7 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
+import org.linphone.compatibility.Compatibility;
 import org.linphone.core.LinphoneCore;
 import org.linphone.mediastream.Log;
 import org.linphone.ui.AddressAware;
@@ -28,13 +29,15 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
+import com.rey.material.widget.ImageButton;
 
 /**
  * @author Sylvain Berfini
@@ -46,14 +49,35 @@ public class DialerFragment extends Fragment {
 	private AddressAware numpad;
 	private AddressText mAddress;
 	private CallButton mCall;
-	private ImageView mAddContact;
 	private OnClickListener addContactListener, cancelListener, transferListener;
 	private boolean shouldEmptyAddressField = true;
+	private ImageButton addContact;
+	private ImageButton menuButton;
 
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
         Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dialer, container, false);
+
+		addContact = (ImageButton) view.findViewById(R.id.add_contact_button);
+		addContact.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				LinphoneActivity.instance().addContact(mAddress.getText().toString());
+			}
+		});
+
+		menuButton = (ImageButton) view.findViewById(R.id.menu_button);
+		menuButton.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				startActivity(new Intent(getActivity(), MenuActivity.class));
+			}
+		});
 
 		mAddress = (AddressText) view.findViewById(R.id.address);
 		mAddress.setDialerFragment(this);
@@ -61,13 +85,13 @@ public class DialerFragment extends Fragment {
 		EraseButton erase = (EraseButton) view.findViewById(R.id.erase);
 		erase.setAddressWidget(mAddress);
 
-		mCall = (CallButton) view.findViewById(R.id.call);
+		mCall = (CallButton) view.findViewById(R.id.Call);
 		mCall.setAddressWidget(mAddress);
 		if (LinphoneActivity.isInstanciated() && LinphoneManager.getLc().getCallsNb() > 0) {
 			if (isCallTransferOngoing) {
-				mCall.setImageResource(R.drawable.call_transfer);
+				mCall.setImageResource(R.drawable.transfer_call);
 			} else {
-				mCall.setImageResource(R.drawable.call_add);
+				mCall.setImageResource(R.drawable.add_call);
 			}
 		} else {
 			if (LinphoneManager.getLc().getVideoAutoInitiatePolicy()) {
@@ -82,13 +106,12 @@ public class DialerFragment extends Fragment {
 			numpad.setAddressWidget(mAddress);
 		}
 
-		mAddContact = (ImageView) view.findViewById(R.id.add_contact);
-		mAddContact.setEnabled(!(LinphoneActivity.isInstanciated() && LinphoneManager.getLc().getCallsNb() > 0));
+		addContact.setEnabled(!(LinphoneActivity.isInstanciated() && LinphoneManager.getLc().getCallsNb() > 0));
 
 		addContactListener = new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				LinphoneActivity.instance().displayContactsForEdition(mAddress.getText().toString());
+				LinphoneActivity.instance().addContact(mAddress.getText().toString());
 			}
 		};
 		cancelListener = new OnClickListener() {
@@ -183,30 +206,30 @@ public class DialerFragment extends Fragment {
 
 		if (lc.getCallsNb() > 0) {
 			if (isCallTransferOngoing) {
-				mCall.setImageResource(R.drawable.call_transfer);
+				mCall.setImageResource(R.drawable.transfer_call);
 				mCall.setExternalClickListener(transferListener);
 			} else {
-				mCall.setImageResource(R.drawable.call_add);
+				mCall.setImageResource(R.drawable.add_call);
 				mCall.resetClickListener();
 			}
-			mAddContact.setEnabled(true);
-			mAddContact.setImageResource(R.drawable.call_alt_back);
-			mAddContact.setOnClickListener(cancelListener);
+			addContact.setEnabled(true);
+			addContact.setImageResource(R.drawable.cancel);
+			addContact.setOnClickListener(cancelListener);
 		} else {
 			if (LinphoneManager.getLc().getVideoAutoInitiatePolicy()) {
 				mCall.setImageResource(R.drawable.call_video_start);
 			} else {
-				mCall.setImageResource(R.drawable.call_audio_start);
+				mCall.setImageResource(R.drawable.bot_call_selector);
 			}
-			mAddContact.setEnabled(false);
-			mAddContact.setImageResource(R.drawable.contact_add_button);
-			mAddContact.setOnClickListener(addContactListener);
+			addContact.setEnabled(false);
+			addContact.setImageResource(R.drawable.bot_add_contact_selector);
+			addContact.setOnClickListener(addContactListener);
 			enableDisableAddContact();
 		}
 	}
 
 	public void enableDisableAddContact() {
-		mAddContact.setEnabled(LinphoneManager.getLc().getCallsNb() > 0 || !mAddress.getText().toString().equals(""));
+		addContact.setEnabled(LinphoneManager.getLc().getCallsNb() > 0 || !mAddress.getText().toString().equals(""));
 	}
 
 	public void displayTextInAddressBar(String numberOrSipAddress) {

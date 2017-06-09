@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mobi_action_bar_height"
+        android:background="@color/main_app_color" >
+
+        <com.rey.material.widget.Button
+            android:id="@+id/back_button"
+            style="@style/FlatButtonRippleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:drawableLeft="@drawable/bot_back_arrow"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="@string/mnp_directory"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/app_text_action_back" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp" >
+
+        <EditText
+            android:id="@+id/searchField"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/contact_search_background"
+            android:hint="@string/mnp_search"
+            android:inputType="textPersonName"
+            android:padding="5dp"
+            android:textColor="@android:color/black"
+            android:textCursorDrawable="@null" />
+
+        <ImageView
+            android:id="@+id/clearSearchField"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/backspace" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/directory_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </ListView>
+
+</LinearLayout>

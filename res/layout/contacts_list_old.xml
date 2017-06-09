@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/background_pattern"
+        android:padding="8dp"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:background="@drawable/login_button_selector"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="mnp75 logo"
+            android:src="@drawable/mnp_logo" />
+
+        <org.linphone.ui.SegmentedGroup
+            android:id="@+id/contactSegmentGroup"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal"
+            android:visibility="gone" >
+
+            <RadioButton
+                android:id="@+id/segment_item1"
+                style="@style/RadioButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:checked="true"
+                android:text="Бүгд" />
+
+            <RadioButton
+                android:id="@+id/segment_item2"
+                style="@style/RadioButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:text="СИП" />
+        </org.linphone.ui.SegmentedGroup>
+
+        <TextView
+            android:id="@+id/newContact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/textView1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/login_button_selector"
+            android:gravity="center"
+            android:padding="0dp"
+            android:textColor="@drawable/text_button"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp" >
+
+        <EditText
+            android:id="@+id/searchField"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/contact_search_background"
+            android:hint="@string/mnp_search"
+            android:inputType="textPersonName"
+            android:padding="5dp"
+            android:textColor="@android:color/black"
+            android:textCursorDrawable="@null" />
+
+        <ImageView
+            android:id="@+id/clearSearchField"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/backspace"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.0" >
+
+        <com.rey.material.widget.ListView
+            android:id="@+id/contactsList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:cacheColorHint="@color/transparent"
+            android:divider="@color/mobi_divider"
+            android:dividerHeight="1dp"
+            android:fastScrollAlwaysVisible="true"
+            android:fastScrollEnabled="true"
+            android:listSelector="@android:color/transparent" />
+
+        <TextView
+            android:id="@+id/noSipContact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="@string/no_sip_contact"
+            android:textAppearance="@android:style/TextAppearance.Large"
+            android:textColor="@drawable/text_color"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/noContact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="@string/no_contact"
+            android:textAppearance="@android:style/TextAppearance.Large"
+            android:textColor="@drawable/text_color"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/main_app_bot_menu_color"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0" >
+
+            <com.rey.material.widget.ImageButton
+                android:id="@+id/add_contact_button"
+                style="@style/FlatButtonRippleStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:background="@android:color/transparent"
+                android:src="@drawable/bot_add_contact_selector" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/sep1"
+            android:layout_width="1dp"
+            android:layout_height="20dp"
+            android:background="@android:color/white"
+            android:orientation="vertical" />
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0" >
+
+            <com.rey.material.widget.Button
+                android:id="@+id/directory"
+                style="@style/FlatButtonRippleStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:tag="0"
+                android:text="@string/mnp_directory"
+                android:textColor="@android:color/white" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/sep2"
+            android:layout_width="1dp"
+            android:layout_height="20dp"
+            android:background="@android:color/white"
+            android:orientation="vertical" />
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0" >
+
+            <com.rey.material.widget.ImageButton
+                android:id="@+id/menu_button"
+                style="@style/FlatButtonRippleStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:background="@android:color/transparent"
+                android:src="@drawable/menu_selector" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

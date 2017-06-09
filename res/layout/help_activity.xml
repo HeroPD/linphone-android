@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mobi_action_bar_height"
+        android:background="@color/main_app_color" >
+
+        <com.rey.material.widget.Button
+            android:id="@+id/back_button"
+            style="@style/FlatButtonRippleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:drawableLeft="@drawable/bot_back_arrow"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="@string/mnp_help"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/app_text_action_back" />
+    </RelativeLayout>
+
+    <io.karim.MaterialRippleLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:mrlRippleColor="@color/main_app_effect_color" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dip"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp" >
+
+            <ImageView
+                android:id="@+id/other_list_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/other_call" />
+
+            <TextView
+                android:id="@+id/other_list_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_toRightOf="@+id/other_list_icon"
+                android:text="@string/mnp_call_center"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/app_text_medium"
+                android:textStyle="normal" />
+        </RelativeLayout>
+    </io.karim.MaterialRippleLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/mobi_divider" />
+
+    <io.karim.MaterialRippleLayout
+        android:id="@+id/container1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:mrlRippleColor="@color/main_app_effect_color" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dip"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp" >
+
+            <ImageView
+                android:id="@+id/other_list_icon_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/other_email" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_toRightOf="@+id/other_list_icon_two"
+                android:text="@string/mnp_send_email"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/app_text_medium"
+                android:textStyle="normal" />
+        </RelativeLayout>
+    </io.karim.MaterialRippleLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/mobi_divider" />
+
+</LinearLayout>

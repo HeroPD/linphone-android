@@ -1,30 +1,302 @@
 <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:background="@android:color/white"
+	android:orientation="vertical">
 
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-			 android:layout_width="match_parent" android:layout_height="match_parent" >
+	<LinearLayout
+		style="@style/RowContainer"
+		android:orientation="vertical" >
 
-<TableRow android:layout_weight="1" android:gravity="center">
-	<org.linphone.ui.Digit android:id="@+id/Digit1"	android:text="1" style="@style/DialerDigit" android:background="@drawable/numpad_one" android:soundEffectsEnabled="true"/>
-	<org.linphone.ui.Digit android:id="@+id/Digit2"	android:text="2" style="@style/DialerDigit" android:background="@drawable/numpad_two" android:soundEffectsEnabled="true" />
-	<org.linphone.ui.Digit android:id="@+id/Digit3"	android:text="3" style="@style/DialerDigit" android:background="@drawable/numpad_three" android:soundEffectsEnabled="true" />
-</TableRow>
+		<LinearLayout style="@style/RowContainer" >
 
-<TableRow android:layout_weight="1" android:gravity="center">
-	<org.linphone.ui.Digit android:id="@+id/Digit4" android:text="4" style="@style/DialerDigit" android:background="@drawable/numpad_four" android:soundEffectsEnabled="true" />
-	<org.linphone.ui.Digit android:id="@+id/Digit5"	android:text="5" style="@style/DialerDigit" android:background="@drawable/numpad_five" android:soundEffectsEnabled="true" />
-	<org.linphone.ui.Digit android:id="@+id/Digit6"	android:text="6" style="@style/DialerDigit" android:background="@drawable/numpad_six" android:soundEffectsEnabled="true" />
-</TableRow>
+			<LinearLayout style="@style/DigitContainer" >
 
-<TableRow android:layout_weight="1" android:gravity="center">
-	<org.linphone.ui.Digit android:id="@+id/Digit7"	android:text="7" style="@style/DialerDigit" android:background="@drawable/numpad_seven" android:soundEffectsEnabled="true" />
-	<org.linphone.ui.Digit android:id="@+id/Digit8"	android:text="8" style="@style/DialerDigit" android:background="@drawable/numpad_eight" android:soundEffectsEnabled="true" />
-	<org.linphone.ui.Digit android:id="@+id/Digit9"	android:text="9" style="@style/DialerDigit" android:background="@drawable/numpad_nine" android:soundEffectsEnabled="true" />
-</TableRow>
+				<io.karim.MaterialRippleLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					app:mrlRippleColor="@color/main_app_effect_color" >
 
-<TableRow android:layout_weight="1" android:gravity="center">
-	<org.linphone.ui.Digit android:id="@+id/DigitStar" android:text="*"  style="@style/DialerDigit" android:background="@drawable/numpad_star_digit" android:soundEffectsEnabled="true" />
-	<org.linphone.ui.Digit android:id="@+id/Digit00"   android:text="0+" style="@style/DialerDigit" android:background="@drawable/numpad_zero" android:soundEffectsEnabled="true" />
-	<org.linphone.ui.Digit android:id="@+id/DigitHash" android:text="#"  style="@style/DialerDigit" android:background="@drawable/numpad_sharp" android:soundEffectsEnabled="true" />
-</TableRow>
+					<org.linphone.ui.Digit
+						android:id="@+id/Digit1"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:background="@null"
+						android:soundEffectsEnabled="true"
+						android:text="1"
+						android:textColor="@android:color/black"
+						android:textSize="30sp" />
+				</io.karim.MaterialRippleLayout>
+			</LinearLayout>
 
-</TableLayout>
+			<LinearLayout style="@style/SeperatorGreyHorizontal" />
+
+			<LinearLayout style="@style/DigitContainer" >
+
+				<io.karim.MaterialRippleLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					app:mrlRippleColor="@color/main_app_effect_color" >
+
+					<org.linphone.ui.Digit
+						android:id="@+id/Digit2"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:background="@null"
+						android:duplicateParentState="true"
+						android:soundEffectsEnabled="true"
+						android:text="2"
+						android:textColor="@android:color/black"
+						android:textSize="30sp" />
+				</io.karim.MaterialRippleLayout>
+			</LinearLayout>
+
+			<LinearLayout style="@style/SeperatorGreyHorizontal" />
+
+			<LinearLayout style="@style/DigitContainer" >
+
+				<io.karim.MaterialRippleLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					app:mrlRippleColor="@color/main_app_effect_color" >
+
+					<org.linphone.ui.Digit
+						android:id="@+id/Digit3"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:background="@null"
+						android:duplicateParentState="true"
+						android:soundEffectsEnabled="true"
+						android:text="3"
+						android:textColor="@android:color/black"
+						android:textSize="30sp" />
+				</io.karim.MaterialRippleLayout>
+			</LinearLayout>
+		</LinearLayout>
+
+		<LinearLayout style="@style/SeperatorGrey" />
+	</LinearLayout>
+
+	<LinearLayout
+		style="@style/RowContainer"
+		android:orientation="vertical" >
+
+		<LinearLayout style="@style/RowContainer" >
+
+			<LinearLayout style="@style/DigitContainer" >
+
+				<io.karim.MaterialRippleLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					app:mrlRippleColor="@color/main_app_effect_color" >
+
+					<org.linphone.ui.Digit
+						android:id="@+id/Digit4"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:background="@null"
+						android:duplicateParentState="true"
+						android:soundEffectsEnabled="true"
+						android:text="4"
+						android:textColor="@android:color/black"
+						android:textSize="30sp" />
+				</io.karim.MaterialRippleLayout>
+			</LinearLayout>
+
+			<LinearLayout style="@style/SeperatorGreyHorizontal" />
+
+			<LinearLayout style="@style/DigitContainer" >
+
+				<io.karim.MaterialRippleLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					app:mrlRippleColor="@color/main_app_effect_color" >
+
+					<org.linphone.ui.Digit
+						android:id="@+id/Digit5"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:background="@null"
+						android:duplicateParentState="true"
+						android:soundEffectsEnabled="true"
+						android:text="5"
+						android:textColor="@android:color/black"
+						android:textSize="30sp" />
+				</io.karim.MaterialRippleLayout>
+			</LinearLayout>
+
+			<LinearLayout style="@style/SeperatorGreyHorizontal" />
+
+			<LinearLayout style="@style/DigitContainer" >
+
+				<io.karim.MaterialRippleLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					app:mrlRippleColor="@color/main_app_effect_color" >
+
+					<org.linphone.ui.Digit
+						android:id="@+id/Digit6"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:background="@null"
+						android:duplicateParentState="true"
+						android:soundEffectsEnabled="true"
+						android:text="6"
+						android:textColor="@android:color/black"
+						android:textSize="30sp" />
+				</io.karim.MaterialRippleLayout>
+			</LinearLayout>
+		</LinearLayout>
+
+		<LinearLayout style="@style/SeperatorGrey" />
+	</LinearLayout>
+
+	<LinearLayout
+		style="@style/RowContainer"
+		android:orientation="vertical" >
+
+		<LinearLayout style="@style/RowContainer" >
+
+			<LinearLayout style="@style/DigitContainer" >
+
+				<io.karim.MaterialRippleLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					app:mrlRippleColor="@color/main_app_effect_color" >
+
+					<org.linphone.ui.Digit
+						android:id="@+id/Digit7"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:background="@null"
+						android:duplicateParentState="true"
+						android:soundEffectsEnabled="true"
+						android:text="7"
+						android:textColor="@android:color/black"
+						android:textSize="30sp" />
+				</io.karim.MaterialRippleLayout>
+			</LinearLayout>
+
+			<LinearLayout style="@style/SeperatorGreyHorizontal" />
+
+			<LinearLayout style="@style/DigitContainer" >
+
+				<io.karim.MaterialRippleLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					app:mrlRippleColor="@color/main_app_effect_color" >
+
+					<org.linphone.ui.Digit
+						android:id="@+id/Digit8"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:background="@null"
+						android:duplicateParentState="true"
+						android:soundEffectsEnabled="true"
+						android:text="8"
+						android:textColor="@android:color/black"
+						android:textSize="30sp" />
+				</io.karim.MaterialRippleLayout>
+			</LinearLayout>
+
+			<LinearLayout style="@style/SeperatorGreyHorizontal" />
+
+			<LinearLayout style="@style/DigitContainer" >
+
+				<io.karim.MaterialRippleLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					app:mrlRippleColor="@color/main_app_effect_color" >
+
+					<org.linphone.ui.Digit
+						android:id="@+id/Digit9"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:background="@null"
+						android:duplicateParentState="true"
+						android:soundEffectsEnabled="true"
+						android:text="9"
+						android:textColor="@android:color/black"
+						android:textSize="30sp" />
+				</io.karim.MaterialRippleLayout>
+			</LinearLayout>
+		</LinearLayout>
+
+		<LinearLayout style="@style/SeperatorGrey" />
+	</LinearLayout>
+
+	<LinearLayout
+		style="@style/RowContainer"
+		android:orientation="vertical" >
+
+		<LinearLayout style="@style/RowContainer" >
+
+			<LinearLayout style="@style/DigitContainer" >
+
+				<io.karim.MaterialRippleLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					app:mrlRippleColor="@color/main_app_effect_color" >
+
+					<org.linphone.ui.Digit
+						android:id="@+id/DigitStar"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:background="@null"
+						android:duplicateParentState="true"
+						android:soundEffectsEnabled="true"
+						android:text="*"
+						android:textColor="@android:color/black"
+						android:textSize="30sp" />
+				</io.karim.MaterialRippleLayout>
+			</LinearLayout>
+
+			<LinearLayout style="@style/SeperatorGreyHorizontal" />
+
+			<LinearLayout style="@style/DigitContainer" >
+
+				<io.karim.MaterialRippleLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					app:mrlRippleColor="@color/main_app_effect_color" >
+
+					<org.linphone.ui.Digit
+						android:id="@+id/Digit00"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:background="@null"
+						android:duplicateParentState="true"
+						android:soundEffectsEnabled="true"
+						android:text="0+"
+						android:textColor="@android:color/black"
+						android:textSize="30sp" />
+				</io.karim.MaterialRippleLayout>
+			</LinearLayout>
+
+			<LinearLayout style="@style/SeperatorGreyHorizontal" />
+
+			<LinearLayout style="@style/DigitContainer" >
+
+				<io.karim.MaterialRippleLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					app:mrlRippleColor="@color/main_app_effect_color" >
+
+					<org.linphone.ui.Digit
+						android:id="@+id/DigitHash"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:background="@null"
+						android:duplicateParentState="true"
+						android:soundEffectsEnabled="true"
+						android:text="#"
+						android:textColor="@android:color/black"
+						android:textSize="30sp" />
+				</io.karim.MaterialRippleLayout>
+			</LinearLayout>
+		</LinearLayout>
+	</LinearLayout>
+
+</LinearLayout> <!-- android:layout_width="fill_parent" android:layout_height="fill_parent" android:textColor="@android:color/black" android:background="@drawable/clavier_bg" android:textStyle="bold" android:textSize="20sp" android:layout_weight="1" -->

@@ -23,7 +23,6 @@ import org.linphone.core.LinphoneCore.LogCollectionUploadState;
 import org.linphone.core.LinphoneCoreListenerBase;
 import org.linphone.mediastream.Log;
 
-import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -31,6 +30,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;

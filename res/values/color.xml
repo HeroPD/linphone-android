@@ -13,5 +13,93 @@
     <color name="colorK">#3eb5c0</color>
     <color name="colorL">#96c11f</color>
 
+    <color name="gray">@android:color/darker_gray</color>
+    <color name="orange">@android:color/holo_blue_light</color>
+    <color name="message_background">#ff5b6a77</color>
+
+    <color name="app_main_text">#ff000000</color>
+    <color name="app_sub_text">#ff808080</color>
+
+    <color name="main_app_color">#ff2d2d2d</color>
+    <color name="main_app_effect_color">#ff7c7c7c</color>
+    <color name="main_app_bot_menu_color">#ff000000</color>
+
+    <color name="text_selected">#ffffffff</color>
+    <color name="text_over">#ffb9c4cb</color>
+    <color name="text_default">#ff5b656f</color>
+    <color name="text_disabled">#ffa6b3bf</color>
+    <color name="text_header">#ff7e8e9e</color>
+
+    <color name="text_switch_selected">#ffffff</color>
+    <color name="text_switch">#ff41484f</color>
+
+    <color name="text_button">#ffFFFFFF</color>
+    <color name="text_button_disabled">#ffa6b3bf</color>
+    <color name="text_button_selected">#ff41484f</color>
+    <color name="text_button_over">#ffcf4c29</color>
+
+    <color name="numpad_background_bottom">#ffe4edf2</color>
+    <color name="numpad_background_dialer">#ffd8d8d8</color>
+    <color name="numpad_background_top">#aaa</color>
+
+    <color name="missed_calls_background">#ffcf4c29</color>
+
     <color name="transparent">#00000000</color>
+
+    <color name="landscape_background">#CCCCCC</color>
+
+    <color name="text_contrast">#ff000000</color> <!-- If background is white, set to black, else set to white -->
+    <color name="login_button_stroke_color">#ff444444</color>
+    <color name="mobi_divider">#ffcdcdcd</color>
+
+    <color name="radio_button_selected_color">#ff33b5e5</color>
+    <color name="radio_button_unselected_color">@android:color/transparent</color>
+    <color name="seperator_grey">#ffcdcdcd</color>
+    <color name="call_green">#ff48bf14</color>
+    <color name="call_green_pressed">#ff399e0c</color>
+    <color name="contact_border">#cdcdcd</color>
+
+
+
+    <!-- Background color for light CardView. -->
+    <color name="cardview_light_background">#FFFAFAFA</color>
+    <!-- Background color for dark CardView. -->
+    <color name="cardview_dark_background">#FF202020</color>
+    <!-- Shadow color for the first pixels around CardView. -->
+    <color name="cardview_shadow_start_color">#37000000</color>
+    <!-- Shadow color for the furthest pixels around CardView. -->
+    <color name="cardview_shadow_end_color">#03000000</color>
+
+    <color name="colorPrimary">#FF03A9F4</color>
+    <color name="colorPrimaryDark">#ff0171c9</color>
+    <color name="colorAccent">#FF00E5FF</color>
+    <color name="colorControlNormal">#FF78909C</color>
+    <color name="colorControlActivated">#FF03A9F4</color>
+    <color name="colorSwitchThumbNormal">#FF78909C</color>
+
+    <array name="progress_colors">
+        <item>#FF3F8AF8</item>
+        <item>#FFD8433C</item>
+        <item>#FFF2AF3A</item>
+        <item>#FF279B5E</item>
+    </array>
+
+
+    <array name="in_colors">
+        <item>#FFB5D4FF</item>
+        <item>#FFDEEAFC</item>
+        <item>#FFFAFFFE</item>
+    </array>
+
+    <color name="rb_checked">#FF4CAF50</color>
+    <color name="rb_unchecked">#FF6D6D6D</color>
+    <color name="rb_disable">#FFB0B0B0</color>
+
+    <color name="tpi_checked">#FFFFFFFF</color>
+    <color name="tpi_unchecked">#99FFFFFF</color>
+
+    <color name="et_divider_focused">@color/colorControlActivated</color>
+    <color name="et_divider_not_focused">#FF6D6D6D</color>
+    <color name="et_divider_disable">#FFC1C1C1</color>
+    <color name="progress_color">#99FFFFFF</color>
 </resources>

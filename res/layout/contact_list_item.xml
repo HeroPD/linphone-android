@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/basic_listview_item_height"
+    android:background="@android:color/white"
+    android:padding="0dp" >
+
+    <io.karim.MaterialRippleLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@+id/seperator"
+        android:drawableRight="@drawable/tab_call"
+        app:mrlRippleColor="@color/main_app_effect_color" >
+
+        <com.rey.material.widget.Button
+            android:id="@+id/call_button"
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:duplicateParentState="true"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="Number"
+            android:textSize="@dimen/app_text_extra_large"
+            android:drawableRight="@drawable/call" />
+    </io.karim.MaterialRippleLayout>
+
+    <LinearLayout
+        android:id="@+id/seperator"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toLeftOf="@+id/left_layout"
+        android:background="@android:color/holo_blue_light"
+        android:orientation="vertical" />
+
+    <io.karim.MaterialRippleLayout
+        android:id="@+id/left_layout"
+        android:layout_width="@dimen/basic_listview_item_height"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        app:mrlRippleColor="@color/main_app_effect_color" >
+
+        <com.rey.material.widget.ImageButton
+            android:id="@+id/message_button"
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:duplicateParentState="true"
+            android:src="@drawable/tab_conversation" />
+    </io.karim.MaterialRippleLayout>
+
+</RelativeLayout>

@@ -26,8 +26,9 @@ import java.util.Locale;
 import java.util.Map;
 
 import android.app.Dialog;
-import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -49,6 +50,14 @@ import android.widget.ProgressBar;
 import android.widget.SectionIndexer;
 import android.widget.TextView;
 
+import com.rey.material.widget.ImageButton;
+
+import org.linphone.compatibility.Compatibility;
+
+import io.karim.MaterialRippleLayout;
+import mn.mobicom.classes.ContactFragment;
+import mn.mobicom.classes.UserControl;
+
 /**
  * @author Sylvain Berfini
  */
@@ -67,10 +76,53 @@ public class ContactsListFragment extends Fragment implements OnClickListener, O
 	private EditText searchField;
 	private ProgressBar contactsFetchInProgress;
 
+	private ImageButton addContact;
+	private ImageButton menuButton;
+	private Button directoryButton;
+	private LinearLayout sep1;
+	private LinearLayout sep2;
+
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		mInflater = inflater;
         View view = inflater.inflate(R.layout.contacts_list, container, false);
+
+		addContact = (ImageButton) view.findViewById(R.id.add_contact_button);
+		addContact.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = Compatibility.prepareAddContactIntent("");
+				startActivity(intent);
+			}
+		});
+
+		menuButton = (ImageButton) view.findViewById(R.id.menu_button);
+		menuButton.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				startActivity(new Intent(getActivity(), MenuActivity.class));
+			}
+		});
+		directoryButton = (Button)  view.findViewById(R.id.directory);
+		sep1 = (LinearLayout) view.findViewById(R.id.sep1);
+		sep2 = (LinearLayout) view.findViewById(R.id.sep2);
+		if (UserControl.userType == UserControl.SipUserType.MNP75){
+			directoryButton.setVisibility(View.INVISIBLE);
+			sep1.setVisibility(View.INVISIBLE);
+			sep2.setVisibility(View.INVISIBLE);
+		}
+		directoryButton.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				startActivity(new Intent(getActivity(), DirectoryActivity.class));
+			}
+		});
 
         if (getArguments() != null) {
 	        editOnClick = getArguments().getBoolean("EditOnClick");
@@ -349,7 +401,7 @@ public class ContactsListFragment extends Fragment implements OnClickListener, O
 		}
 		contactsList.setFastScrollEnabled(true);
 		adapter.notifyDataSetInvalidated();
-		
+
 
 		if (adapter.getCount() > 0) {
 			contactsFetchInProgress.setVisibility(View.GONE);
@@ -391,6 +443,10 @@ public class ContactsListFragment extends Fragment implements OnClickListener, O
 		if (editConsumed) {
 			editOnClick = false;
 			sipAddressToAdd = null;
+		}
+
+		if (searchField != null && searchField.getText().toString().length() > 0) {
+			if (contactsFetchInProgress != null) contactsFetchInProgress.setVisibility(View.GONE);
 		}
 
 		if (LinphoneActivity.isInstanciated()) {
@@ -442,6 +498,7 @@ public class ContactsListFragment extends Fragment implements OnClickListener, O
 			public ImageView contactPicture;
 			public TextView organization;
 			//public ImageView friendStatus;
+			public MaterialRippleLayout rippleView;
 
 			public ViewHolder(View view) {
 				delete = (CheckBox) view.findViewById(R.id.delete);
@@ -452,6 +509,7 @@ public class ContactsListFragment extends Fragment implements OnClickListener, O
 				contactPicture = (ImageView) view.findViewById(R.id.contact_picture);
 				organization = (TextView) view.findViewById(R.id.contactOrganization);
 				//friendStatus = (ImageView) view.findViewById(R.id.friendStatus);
+				rippleView = (MaterialRippleLayout) view.findViewById(R.id.ripple_view);
 			}
 		}
 
@@ -463,7 +521,7 @@ public class ContactsListFragment extends Fragment implements OnClickListener, O
 		ContactsListAdapter(List<LinphoneContact> contactsList) {
 			updateDataSet(contactsList);
 		}
-		
+
 		public void updateDataSet(List<LinphoneContact> contactsList) {
 			contacts = contactsList;
 
@@ -484,7 +542,7 @@ public class ContactsListFragment extends Fragment implements OnClickListener, O
 			sectionsList = new ArrayList<String>(map.keySet());
 			sections = new String[sectionsList.size()];
 			sectionsList.toArray(sections);
-			
+
 			notifyDataSetChanged();
 		}
 
@@ -503,7 +561,7 @@ public class ContactsListFragment extends Fragment implements OnClickListener, O
 
 		public View getView(final int position, View convertView, ViewGroup parent) {
 			View view = null;
-			LinphoneContact contact = (LinphoneContact) getItem(position);
+			final LinphoneContact contact = (LinphoneContact) getItem(position);
 			if (contact == null) return null;
 
 			ViewHolder holder = null;
@@ -541,7 +599,8 @@ public class ContactsListFragment extends Fragment implements OnClickListener, O
 			if (contact.hasPhoto()) {
 				LinphoneUtils.setThumbnailPictureFromUri(getActivity(), holder.contactPicture, contact.getThumbnailUri());
 			} else {
-				holder.contactPicture.setImageBitmap(ContactsManager.getInstance().getDefaultAvatarBitmap());
+				holder.contactPicture.setImageResource(R.drawable.unknown_small);
+//				holder.contactPicture.setImageBitmap(ContactsManager.getInstance().getDefaultAvatarBitmap());
 			}
 
 			boolean isOrgVisible = getResources().getBoolean(R.bool.display_contact_organization);
@@ -584,7 +643,16 @@ public class ContactsListFragment extends Fragment implements OnClickListener, O
 			} else {
 				holder.delete.setVisibility(View.INVISIBLE);
 			}
+			holder.rippleView.setOnClickListener(new View.OnClickListener() {
 
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					contact.refresh();
+					ContactFragment.contact = contact;
+					getActivity().startActivity(new Intent(getActivity(), ContactActivity.class));
+				}
+			});
 			/*LinphoneFriend[] friends = LinphoneManager.getLc().getFriendList();
 			if (!ContactsManager.getInstance().isContactPresenceDisabled() && friends != null) {
 				holder.friendStatus.setVisibility(View.VISIBLE);

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mobi_action_bar_height"
+        android:background="@color/main_app_color" >
+
+        <com.rey.material.widget.Button
+            android:id="@+id/back_button"
+            style="@style/FlatButtonRippleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:drawableLeft="@drawable/bot_back_arrow"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:maxWidth="200dp"
+            android:singleLine="true"
+            android:text="@string/mnp_caller_id_blocking"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/app_text_action_back" />
+        
+        <com.rey.material.widget.Button
+            android:id="@+id/save_button"
+            style="@style/FlatButtonRippleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:layout_alignParentRight="true"
+            android:text="@string/mnp_save"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/app_text_action_back" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/basic_listview_item_height" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/setting_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:text="@string/mnp_active"
+                android:textColor="@color/app_main_text"
+                android:textSize="@dimen/app_text_large" />
+        </LinearLayout>
+        
+        <LinearLayout
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toLeftOf="@+id/switch_caller_id"
+        android:background="@android:color/holo_blue_light" />
+
+        <com.rey.material.widget.Switch
+            android:id="@+id/switch_caller_id"
+            style="@style/Material.Widget.Switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:checked="false"
+            android:gravity="center"
+            android:padding="16dp"
+             />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/mobi_divider" />
+
+</LinearLayout>

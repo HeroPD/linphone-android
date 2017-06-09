@@ -14,4 +14,40 @@
         <attr name="direction" />
     </declare-styleable>
 
+    <!-- Material TabHost -->
+
+    <declare-styleable name="MaterialTabHost">
+
+        <!-- Custom attributes -->
+        <attr name="hasIcons" format="boolean" />
+        <attr name="materialTabsPrimaryColor" format="color" />
+        <attr name="accentColor" format="color" />
+        <attr name="iconColor" format="color" />
+        <attr name="textColor" format="color" />
+    </declare-styleable>
+    <declare-styleable name="MaterialRippleLayout">
+        <attr name="mrlRippleColor" format="color" localization="suggested" />
+        <attr name="mrlRippleHighlightColor" format="color" localization="suggested" />
+        <attr name="mrlRippleDiameter" format="dimension" localization="suggested" />
+        <attr name="mrlRippleOverlay" format="boolean" localization="suggested" />
+        <attr name="mrlRippleAlpha" format="float" localization="suggested" />
+        <attr name="mrlRippleDuration" format="integer" localization="suggested" />
+        <attr name="mrlRippleFadeDuration" format="integer" localization="suggested" />
+        <attr name="mrlRippleDelayClick" format="boolean" localization="suggested" />
+        <attr name="mrlRipplePersistent" format="boolean" localization="suggested" />
+        <attr name="mrlRippleInAdapter" format="boolean" localization="suggested" />
+        <attr name="mrlRippleRoundedCorners" format="dimension" localization="suggested" />
+    </declare-styleable>
+
+    <!-- Refresh layout -->
+    <declare-styleable name="SwipyRefreshLayout">
+        <attr name="swDirection">
+            <enum name="top" value="0" />
+            <enum name="bottom" value="1" />
+            <enum name="both" value="2" />
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="AvatarWithShadow">
+        <attr name="picture" format="reference" />
+    </declare-styleable>
 </resources>

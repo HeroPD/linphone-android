@@ -262,8 +262,12 @@ public final class LinphoneUtils {
 		}
 		if (tUri.getScheme().startsWith("http")) {
 			Bitmap bm = downloadBitmap(tUri);
-			if (bm == null) view.setImageResource(R.drawable.avatar);
-			view.setImageBitmap(bm);
+			if (bm == null)
+				view.setImageResource(R.drawable.unknown_small);
+			else {
+				view.setScaleType(ImageView.ScaleType.CENTER_CROP);
+				view.setImageBitmap(bm);
+			}
 		} else {
 			Bitmap bm = null;
 			try {
@@ -271,9 +275,10 @@ public final class LinphoneUtils {
 			} catch (IOException e) {
 			}
 			if (bm != null) {
+				view.setScaleType(ImageView.ScaleType.CENTER_CROP);
 				view.setImageBitmap(bm);
 			} else {
-				view.setImageBitmap(ContactsManager.getInstance().getDefaultAvatarBitmap());
+				view.setImageResource(R.drawable.unknown_small);
 			}
 		}
 	}

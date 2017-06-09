@@ -44,18 +44,18 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.rey.material.widget.ImageButton;
+
 public class CallIncomingActivity extends LinphoneGenericActivity implements LinphoneSliderTriggered {
 	private static CallIncomingActivity instance;
 
 	private TextView name, number;
-	private ImageView contactPicture, accept, decline;
+	private ImageView contactPicture;
 	private LinphoneCall mCall;
 	private LinphoneCoreListenerBase mListener;
-	private LinearLayout acceptUnlock;
-	private LinearLayout declineUnlock;
 	private boolean alreadyAcceptedOrDeniedCall;
-	private float answerX;
-	private float declineX;
+	private ImageButton callAnswer;
+	private ImageButton callDecline;
 
 	public static CallIncomingActivity instance() {
 		return instance;
@@ -86,89 +86,26 @@ public class CallIncomingActivity extends LinphoneGenericActivity implements Lin
 
 		final int screenWidth = getResources().getDisplayMetrics().widthPixels;
 
-		acceptUnlock = (LinearLayout) findViewById(R.id.acceptUnlock);
-		declineUnlock = (LinearLayout) findViewById(R.id.declineUnlock);
+		callAnswer = (ImageButton) findViewById(R.id.call_answer);
+		callDecline = (ImageButton) findViewById(R.id.call_end);
 
-		accept = (ImageView) findViewById(R.id.accept);
-		decline = (ImageView) findViewById(R.id.decline);
-		accept.setOnClickListener(new View.OnClickListener() {
+		callAnswer.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				answer();
+				finish();
+			}
+		});
+
+		callDecline.setOnClickListener(new View.OnClickListener() {
+
 			@Override
 			public void onClick(View v) {
-
-				decline.setVisibility(View.GONE);
-				acceptUnlock.setVisibility(View.VISIBLE);
-
-			}
-		});
-
-
-		accept.setOnTouchListener(new View.OnTouchListener() {
-			@Override
-			public boolean onTouch(View view, MotionEvent motionEvent) {
-				float curX;
-				switch (motionEvent.getAction()) {
-					case MotionEvent.ACTION_DOWN:
-						acceptUnlock.setVisibility(View.VISIBLE);
-						decline.setVisibility(View.GONE);
-						answerX = motionEvent.getX();
-						break;
-					case MotionEvent.ACTION_MOVE:
-						curX = motionEvent.getX();
-						if((answerX - curX) >= 0)
-							view.scrollBy((int) (answerX - curX), view.getScrollY());
-						answerX = curX;
-						if (curX < screenWidth/4) {
-							answer();
-							return true;
-						}
-						break;
-					case MotionEvent.ACTION_UP:
-						view.scrollTo(0, view.getScrollY());
-						decline.setVisibility(View.VISIBLE);
-						acceptUnlock.setVisibility(View.GONE);
-						break;
-				}
-				return true;
-			}
-		});
-
-		decline.setOnTouchListener(new View.OnTouchListener() {
-			@Override
-			public boolean onTouch(View view, MotionEvent motionEvent) {
-				float curX;
-				switch (motionEvent.getAction()) {
-					case MotionEvent.ACTION_DOWN:
-						declineUnlock.setVisibility(View.VISIBLE);
-						accept.setVisibility(View.GONE);
-						declineX = motionEvent.getX();
-						break;
-					case MotionEvent.ACTION_MOVE:
-						curX = motionEvent.getX();
-						view.scrollBy((int) (declineX - curX), view.getScrollY());
-						declineX = curX;
-						Log.w(curX);
-						if (curX > (screenWidth/2)){
-							decline();
-							return true;
-						}
-						break;
-					case MotionEvent.ACTION_UP:
-						view.scrollTo(0, view.getScrollY());
-						accept.setVisibility(View.VISIBLE);
-						declineUnlock.setVisibility(View.GONE);
-						break;
-
-				}
-				return true;
-			}
-		});
-
-
-		decline.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				accept.setVisibility(View.GONE);
-				acceptUnlock.setVisibility(View.VISIBLE);
+				// TODO Auto-generated method stub
+				decline();
+				finish();
 			}
 		});
 
@@ -184,8 +121,6 @@ public class CallIncomingActivity extends LinphoneGenericActivity implements Lin
 				}
 			}
 		};
-
-		super.onCreate(savedInstanceState);
 		instance = this;
 	}
 

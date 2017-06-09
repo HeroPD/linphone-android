@@ -73,7 +73,8 @@
             android:name=".LinphoneLauncherActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/NoTitle"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppBar"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -108,7 +109,8 @@
         <activity
             android:name=".LinphoneActivity"
             android:launchMode="singleTask"
-            android:theme="@style/NoTitle">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
             </intent-filter>
@@ -116,7 +118,8 @@
         <activity
             android:name=".CallIncomingActivity"
             android:launchMode="singleTop"
-            android:theme="@style/NoTitle">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
             </intent-filter>
@@ -124,7 +127,8 @@
         <activity
             android:name=".CallOutgoingActivity"
             android:launchMode="singleTop"
-            android:theme="@style/NoTitle">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
             </intent-filter>
@@ -132,7 +136,8 @@
         <activity
             android:name=".CallActivity"
             android:launchMode="singleTop"
-            android:theme="@style/FullScreen">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
             </intent-filter>
@@ -318,6 +323,114 @@
             </intent-filter>
         </activity>
         <activity android:name=".LinphoneGenericActivity">
+        </activity>
+        <activity
+            android:name="ContactActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppBar" >
+        </activity>
+        <activity
+            android:name="MenuActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppBar" >
+        </activity>
+        <activity
+            android:name="CallLogDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppBar" >
+        </activity>
+        <activity
+            android:name="MessageWriteActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppBar"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity
+            android:name="SettingsAcitivty"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppBar" >
+        </activity>
+        <activity
+            android:name="AboutUsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppBar" >
+        </activity>
+        <activity
+            android:name="SettingsCallerIDBlockingActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppBar" >
+        </activity>
+        <activity
+            android:name="SettingsCFNoAnswerActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppBar" >
+        </activity>
+        <activity
+            android:name="SettingsCFAlwaysActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppBar" >
+        </activity>
+        <activity
+            android:name="SettingsCFNotReachableAvtivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppBar" >
+        </activity>
+        <activity
+            android:name="SettingsCFBusyActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppBar" >
+        </activity>
+        <activity
+            android:name="SettingsMobilityActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppBar"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+        </activity>
+        <activity
+            android:name="SettingsSimultaneousActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppBar" >
+        </activity>
+        <activity
+            android:name="SettingsSimultaneousEditActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppBar" >
+        </activity>
+        <activity
+            android:name="SettingsSequantialActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppBar" >
+        </activity>
+        <activity
+            android:name="SettingsSequantialEditActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppBar" >
+        </activity>
+        <activity
+            android:name="SettingsCFVoipActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppBar" >
+        </activity>
+        <activity
+            android:name="MNP75UserInfoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppBar" >
+        </activity>
+        <activity
+            android:name="SettingsCallThroughActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppBar" >
+        </activity>
+        <activity
+            android:name="HelpActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppBar">
+        </activity>
+        <activity
+            android:name="ConnectActivity"
+            android:windowSoftInputMode="stateAlwaysVisible"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppBar">
         </activity>
     </application>
 

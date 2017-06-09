@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="notification_subtext_size">12dp</dimen>
+
+    <dimen name="drawer_width">240dp</dimen>
+    <dimen name="drawer_text">20sp</dimen>
+    <dimen name="title_text">16sp</dimen>
+
+    <dimen name="bt_height">36dp</dimen>
+    <dimen name="tabhostHeight">48dp</dimen>
+    <dimen name="tabSelectorHeight">2dp</dimen>
+    <dimen name="materialTextTab">14sp</dimen>
+
+    <dimen name="radio_button_conner_radius">5dp</dimen>
+    <dimen name="radio_button_stroke_border">1dp</dimen>
+    <!-- Mobicom custom dimens -->
+    <dimen name="mobi_action_bar_height">44dp</dimen>
+
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="basic_listview_item_height">60dp</dimen>
+    <!-- App text sizes -->
+    <dimen name="app_text_extra_small">12sp</dimen>
+    <dimen name="app_text_small">14sp</dimen>
+    <dimen name="app_text_medium">18sp</dimen>
+    <dimen name="app_text_large">22sp</dimen>
+    <dimen name="app_text_extra_large">25sp</dimen>
+    <dimen name="app_text_action_back">20sp</dimen>
+    <dimen name="app_text_section">15sp</dimen>
+    <!-- InCall Screen Sizes -->
+    <dimen name="app_drawable_top_padding">30dp</dimen>
+    <dimen name="app_text_incall_button_titlesize">18sp</dimen>
+</resources>

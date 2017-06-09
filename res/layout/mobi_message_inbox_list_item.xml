@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:padding="10dp"
+    android:background="@android:color/white"
+     >
+
+    <ImageView
+        android:id="@+id/inbox_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:src="@drawable/other_contact" />
+
+    <TextView
+        android:id="@+id/inbox_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/inbox_icon"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/inbox_icon"
+        android:text="Medium Text"
+        android:textColor="@android:color/black"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/inbox_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/inbox_icon"
+        android:layout_alignLeft="@+id/inbox_title"
+        android:textColor="@android:color/black"
+        android:layout_marginBottom="5dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/inbox_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:textColor="@android:color/black"
+        android:text="TextView" />
+
+</RelativeLayout>

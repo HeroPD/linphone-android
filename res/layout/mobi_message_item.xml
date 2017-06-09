@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/basic_listview_item_height"
+    android:background="@android:color/white"
+    android:gravity="center_vertical"
+    android:orientation="vertical" >
+
+    <io.karim.MaterialRippleLayout
+        android:id="@+id/message_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        app:mrlRippleColor="@color/main_app_effect_color" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lines="1"
+                    android:singleLine="true"
+                    android:text="99893663"
+                    android:textColor="@color/app_main_text"
+                    android:textSize="@dimen/app_text_large" />
+
+                <TextView
+                    android:id="@+id/new_message_mark"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:gravity="center"
+                    android:background="@drawable/new_message_mark_background"
+                    android:text="2"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:textColor="@android:color/white" 
+                    android:visibility="gone"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/subtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1.0"
+                    android:lines="1"
+                    android:singleLine="true"
+                    android:text="message detail text "
+                    android:textColor="@color/app_sub_text"
+                    android:textSize="@dimen/app_text_extra_small" />
+
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="yesterday"
+                    android:textColor="@color/app_sub_text"
+                    android:textSize="@dimen/app_text_extra_small" />
+            </LinearLayout>
+        </LinearLayout>
+    </io.karim.MaterialRippleLayout>
+
+</LinearLayout>

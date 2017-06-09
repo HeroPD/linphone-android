@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/org.linphone"
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_selector"
+    android:gravity="center_vertical"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/separator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/numpad_background_top"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" 
+        android:textSize="@dimen/app_text_extra_small"
+        android:visibility="gone"/>
+
+    <io.karim.MaterialRippleLayout
+        android:id="@+id/setting_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:mrlRippleColor="@color/main_app_effect_color" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/basic_listview_item_height" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/setting_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lines="1"
+                    android:text="99893663"
+                    android:textColor="@color/app_main_text"
+                    android:textSize="@dimen/app_text_medium" />
+            </LinearLayout>
+        </RelativeLayout>
+    </io.karim.MaterialRippleLayout>
+
+</LinearLayout>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/org.linphone"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/basic_listview_item_height"
+    android:background="@android:color/white"
+    android:gravity="center_vertical"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <RelativeLayout
+            android:id="@+id/accesory"
+            android:layout_width="@dimen/basic_listview_item_height"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" >
+
+            <io.karim.MaterialRippleLayout
+                android:id="@+id/detail_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:mrlRippleColor="@color/main_app_effect_color" >
+
+                <com.rey.material.widget.ImageButton
+                    android:id="@+id/detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:duplicateParentState="true"
+                    android:src="@drawable/detail_arrow" />
+            </io.karim.MaterialRippleLayout>
+
+            <io.karim.MaterialRippleLayout
+                android:id="@+id/delete_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:mrlRippleColor="@color/main_app_effect_color" >
+
+                <com.rey.material.widget.ImageButton
+                    android:id="@+id/delete"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:duplicateParentState="true"
+                    android:src="@drawable/delete"
+                    android:visibility="gone" />
+            </io.karim.MaterialRippleLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/seperator"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toLeftOf="@+id/accesory"
+            android:background="@android:color/holo_blue_light"
+            android:orientation="vertical" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/seperator"
+            android:layout_toRightOf="@+id/icon" >
+
+            <io.karim.MaterialRippleLayout
+                android:id="@+id/ripple_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:mrlRippleColor="@color/main_app_effect_color" >
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:duplicateParentState="true"
+                    android:visibility="invisible" />
+            </io.karim.MaterialRippleLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_toLeftOf="@+id/left_side"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="0dp" >
+
+                <TextView
+                    android:id="@+id/sipUri"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lines="1"
+                    android:singleLine="true"
+                    android:text="99893663"
+                    android:textColor="@color/app_main_text"
+                    android:textSize="@dimen/app_text_large" />
+
+                <TextView
+                    android:id="@+id/subTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/call_log_missed"
+                    android:gravity="center"
+                    android:lines="1"
+                    android:singleLine="true"
+                    android:text="Missed call"
+                    android:textColor="@color/app_main_text"
+                    android:textSize="@dimen/app_text_extra_small" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/left_side"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:gravity="center_vertical|right"
+                android:orientation="vertical"
+                android:paddingLeft="0dp"
+                android:paddingRight="10dp" >
+
+                <TextView
+                    android:id="@+id/timeStamp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 days ago"
+                    android:textColor="@color/app_sub_text"
+                    android:textSize="@dimen/app_text_small" />
+
+                <TextView
+                    android:id="@+id/time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="12:52 AM"
+                    android:textColor="@color/app_sub_text"
+                    android:textSize="@dimen/app_text_small" />
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+</LinearLayout>

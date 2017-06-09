@@ -10,7 +10,8 @@
 		android:orientation="horizontal"
 		android:background="@color/colorF"
 		android:layout_width="match_parent"
-		android:layout_height="60dp">
+		android:layout_height="60dp"
+		android:visibility="gone">
 
 		<RelativeLayout
 			android:layout_width="0dp"
@@ -117,7 +118,8 @@
 
 	<RelativeLayout
 		android:layout_width="match_parent"
-		android:layout_height="match_parent">
+		android:layout_height="0dp"
+		android:layout_weight="1.0">
 
 		<ListView
 			android:id="@+id/contactsList"
@@ -158,5 +160,72 @@
 			android:layout_centerVertical="true"/>
 
 	</RelativeLayout>
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="50dp"
+		android:background="@color/main_app_bot_menu_color"
+		android:gravity="center_vertical"
+		android:orientation="horizontal" >
+
+		<RelativeLayout
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1.0" >
+
+			<com.rey.material.widget.ImageButton
+				android:id="@+id/add_contact_button"
+				style="@style/FlatButtonRippleStyle"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:layout_centerHorizontal="true"
+				android:background="@android:color/transparent"
+				android:src="@drawable/bot_add_contact_selector" />
+		</RelativeLayout>
+
+		<LinearLayout
+			android:id="@+id/sep1"
+			android:layout_width="1dp"
+			android:layout_height="20dp"
+			android:background="@android:color/white"
+			android:orientation="vertical" />
+
+		<RelativeLayout
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1.0" >
+
+			<com.rey.material.widget.Button
+				android:id="@+id/directory"
+				style="@style/FlatButtonRippleStyle"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:background="@android:color/transparent"
+				android:tag="0"
+				android:text="@string/mnp_directory"
+				android:textColor="@android:color/white" />
+		</RelativeLayout>
+
+		<LinearLayout
+			android:id="@+id/sep2"
+			android:layout_width="1dp"
+			android:layout_height="20dp"
+			android:background="@android:color/white"
+			android:orientation="vertical" />
+
+		<RelativeLayout
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1.0" >
+
+			<com.rey.material.widget.ImageButton
+				android:id="@+id/menu_button"
+				style="@style/FlatButtonRippleStyle"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:layout_centerHorizontal="true"
+				android:background="@android:color/transparent"
+				android:src="@drawable/menu_selector" />
+		</RelativeLayout>
+	</LinearLayout>
 
 </LinearLayout>

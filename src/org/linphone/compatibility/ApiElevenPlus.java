@@ -118,19 +118,11 @@ public class ApiElevenPlus {
 		return notif;
 	}
 	
-	public static Intent prepareAddContactIntent(String displayName, String sipUri) {
+	public static Intent prepareAddContactIntent(String displayName) {
 		Intent intent = new Intent(Intent.ACTION_INSERT, Contacts.CONTENT_URI);
-		intent.putExtra(ContactsContract.Intents.Insert.NAME, displayName);
-		
-		if (sipUri != null && sipUri.startsWith("sip:")) {
-			sipUri = sipUri.substring(4);
-		}
-		
+		intent.putExtra(Insert.PHONE, displayName);
+
 		ArrayList<ContentValues> data = new ArrayList<ContentValues>();
-		ContentValues sipAddressRow = new ContentValues();
-		sipAddressRow.put(Contacts.Data.MIMETYPE, SipAddress.CONTENT_ITEM_TYPE);
-		sipAddressRow.put(SipAddress.SIP_ADDRESS, sipUri);
-		data.add(sipAddressRow);
 		intent.putParcelableArrayListExtra(Insert.DATA, data);
 		
 		return intent;

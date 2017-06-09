@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/org.linphone"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mobi_action_bar_height"
+        android:background="@color/main_app_color" >
+
+        <com.rey.material.widget.Button
+            android:id="@+id/back_button"
+            style="@style/FlatButtonRippleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:drawableLeft="@drawable/bot_back_arrow"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="@string/mnp_call_detail"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/app_text_action_back" />
+
+        <com.rey.material.widget.ImageButton
+            android:id="@+id/header_remove"
+            style="@style/FlatButtonRippleStyle"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/action_bar_remove" />
+    </RelativeLayout>
+
+    <io.karim.MaterialRippleLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:mrlRippleColor="@color/main_app_effect_color" >
+
+        <RelativeLayout
+            android:id="@+id/call_back"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/basic_listview_item_height" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/transparent"
+                    android:drawableLeft="@drawable/call"
+                    android:padding="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical|left"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mnp_call"
+                        android:textColor="@color/app_main_text"
+                        android:textSize="@dimen/app_text_medium" />
+
+                    <TextView
+                        android:id="@+id/number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="99893663"
+                        android:textColor="@color/app_main_text"
+                        android:textSize="@dimen/app_text_small" />
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </io.karim.MaterialRippleLayout>
+
+    <io.karim.MaterialRippleLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:mrlRippleColor="@color/main_app_effect_color" >
+
+        <RelativeLayout
+            android:id="@+id/message"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/basic_listview_item_height" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/transparent"
+                    android:drawableLeft="@drawable/tab_conversation"
+                    android:padding="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical|left"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/textView12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mnp_send_text_message"
+                        android:textColor="@color/app_main_text"
+                        android:textSize="@dimen/app_text_large" />
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </io.karim.MaterialRippleLayout>
+
+    <io.karim.MaterialRippleLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:mrlRippleColor="@color/main_app_effect_color" >
+
+        <RelativeLayout
+            android:id="@+id/view_contact"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/basic_listview_item_height" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/transparent"
+                    android:drawableLeft="@drawable/tab_contact"
+                    android:padding="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical|left"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/textView13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mnp_view_contact"
+                        android:textColor="@color/app_main_text"
+                        android:textSize="@dimen/app_text_large" />
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </io.karim.MaterialRippleLayout>
+
+    <io.karim.MaterialRippleLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:mrlRippleColor="@color/main_app_effect_color" >
+
+        <RelativeLayout
+            android:id="@+id/add_contact"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/basic_listview_item_height"
+            android:visibility="gone" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/transparent"
+                    android:drawableLeft="@drawable/tab_contact"
+                    android:padding="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical|left"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/textView15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mnp_add_contact"
+                        android:textColor="@color/app_main_text"
+                        android:textSize="@dimen/app_text_large" />
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </io.karim.MaterialRippleLayout>
+
+    <io.karim.MaterialRippleLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:mrlRippleColor="@color/main_app_effect_color" >
+
+        <RelativeLayout
+            android:id="@+id/delete"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/basic_listview_item_height" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/transparent"
+                    android:drawableLeft="@drawable/delete"
+                    android:padding="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical|left"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/textView10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mnp_delete"
+                        android:textColor="@color/app_main_text"
+                        android:textSize="@dimen/app_text_large" />
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </io.karim.MaterialRippleLayout>
+
+    <LinearLayout
+        android:id="@+id/default_call_log_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/numpad_background_top"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="@string/mnp_duration"
+            android:textColor="@android:color/white"
+            android:textSize="15sp" />
+
+        <io.karim.MaterialRippleLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:mrlRippleColor="@color/main_app_effect_color" >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/basic_listview_item_height" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_vertical|right"
+                    android:orientation="vertical"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="10dp" >
+
+                    <TextView
+                        android:id="@+id/call_direction"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/call_log_missed"
+                        android:gravity="center"
+                        android:lines="1"
+                        android:singleLine="true"
+                        android:text="Missed call"
+                        android:textColor="@color/app_main_text"
+                        android:textSize="@dimen/app_text_extra_small" />
+
+                    <TextView
+                        android:id="@+id/call_duration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:lines="1"
+                        android:singleLine="true"
+                        android:text="1min 12s"
+                        android:textColor="@color/app_main_text"
+                        android:textSize="@dimen/app_text_extra_small" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical|left"
+                    android:orientation="vertical"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="0dp" >
+
+                    <TextView
+                        android:id="@+id/timeStamp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1 days ago"
+                        android:textColor="@color/app_sub_text"
+                        android:textSize="@dimen/app_text_small" />
+
+                    <TextView
+                        android:id="@+id/time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="12:52 AM"
+                        android:textColor="@color/app_sub_text"
+                        android:textSize="@dimen/app_text_small" />
+                </LinearLayout>
+            </RelativeLayout>
+        </io.karim.MaterialRippleLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

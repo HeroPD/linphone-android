@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/background_pattern"
+        android:padding="8dp"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/deleteAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/login_button_selector"
+            android:gravity="center"
+            android:text="@string/mnp_delete"
+            android:textColor="@drawable/text_button" />
+
+        <org.linphone.ui.SegmentedGroup
+            android:id="@+id/historySegmentGroup"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/segment_item1"
+                style="@style/RadioButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:checked="true"
+                android:text="Бүгд" />
+
+            <RadioButton
+                android:id="@+id/segment_item2"
+                style="@style/RadioButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:text="Аваагүй" />
+        </org.linphone.ui.SegmentedGroup>
+
+        <TextView
+            android:id="@+id/edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/login_button_selector"
+            android:contentDescription="@string/content_description_edit"
+            android:gravity="center"
+            android:text="@string/mnp_edit"
+            android:textColor="@drawable/text_button" />
+
+        <TextView
+            android:id="@+id/ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/login_button_selector"
+            android:gravity="center"
+            android:text="@string/mnp_ok"
+            android:textColor="@drawable/text_button"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:cacheColorHint="@color/transparent" >
+
+        <ListView
+            android:id="@+id/historyList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/controls_bottom"
+            android:cacheColorHint="@color/transparent"
+            android:divider="@android:color/darker_gray"
+            android:dividerHeight="1dp" />
+
+        <LinearLayout
+            android:id="@+id/controls_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:background="@android:color/black"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <LinearLayout
+                    android:id="@+id/bottom_control1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:baselineAligned="true" >
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.0" >
+
+                        <com.rey.material.widget.ImageButton
+                            android:id="@+id/edit_button"
+                            style="@style/FlatButtonRippleStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerHorizontal="true"
+                            android:background="@android:color/transparent"
+                            android:src="@drawable/bot_edit_selector" />
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="1dp"
+                        android:layout_height="20dp"
+                        android:background="@android:color/white"
+                        android:visibility="gone" />
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.0"
+                        android:visibility="invisible" >
+
+                        <ImageButton
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_centerHorizontal="true"
+                            android:background="@android:color/transparent"
+                            android:duplicateParentState="true"
+                            android:src="@drawable/abc_ic_menu_copy_mtrl_am_alpha" />
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="1dp"
+                        android:layout_height="20dp"
+                        android:background="@android:color/white"
+                        android:visibility="gone" />
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.0" >
+
+                        <com.rey.material.widget.Button
+                            android:id="@+id/toggle_missed"
+                            style="@style/FlatButtonRippleStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:textColor="@android:color/white"
+                            android:tag="0"
+                            android:text="@string/mnp_missed" />
+                    </RelativeLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/bottom_control2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:background="@android:color/holo_blue_light"
+                    android:visibility="gone" >
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.0" >
+
+                        <com.rey.material.widget.ImageButton
+                            style="@style/FlatButtonRippleStyle"
+                            android:id="@+id/remove_button"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerHorizontal="true"
+                            android:background="@android:color/transparent"
+                            android:src="@drawable/bot_remove_selector" />
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="1dp"
+                        android:layout_height="20dp"
+                        android:background="@android:color/white"
+                        android:visibility="gone" />
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.0"
+                        android:visibility="invisible" >
+
+                        <ImageButton
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_centerHorizontal="true"
+                            android:background="@android:color/transparent"
+                            android:duplicateParentState="true"
+                            android:src="@drawable/abc_ic_menu_copy_mtrl_am_alpha" />
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="1dp"
+                        android:layout_height="20dp"
+                        android:background="@android:color/white"
+                        android:visibility="gone" />
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.0" >
+
+                        <com.rey.material.widget.Button
+                            style="@style/FlatButtonRippleStyle"
+                            android:id="@+id/done_button"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:textColor="@android:color/white"
+                            android:text="Done" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/noCallHistory"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/no_call_history"
+        android:textAppearance="@android:style/TextAppearance.Large"
+        android:textColor="@drawable/text_color"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/noMissedCallHistory"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/no_missed_call_history"
+        android:textAppearance="@android:style/TextAppearance.Large"
+        android:textColor="@drawable/text_color"
+        android:visibility="gone" />
+
+</LinearLayout>

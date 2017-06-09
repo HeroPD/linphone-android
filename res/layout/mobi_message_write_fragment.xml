@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/footer"
+        android:layout_below="@+id/mobi_to_number_container" >
+
+        <ListView
+            android:id="@+id/mobi_message_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:cacheColorHint="@android:color/transparent"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="0dp"
+            android:listSelector="@android:color/transparent"
+            android:stackFromBottom="true"
+            android:transcriptMode="normal" >
+        </ListView>
+        
+        <ProgressBar
+            android:id="@+id/message_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
+        
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/mobi_divider"
+        android:listSelector="@android:color/transparent"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/main_app_bot_menu_color"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true"
+        android:gravity="center_vertical"
+        android:minHeight="100dp"
+        android:orientation="horizontal"
+        android:padding="5dp" >
+
+        
+
+        <EditText
+            android:id="@+id/mobi_text_message"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:background="@drawable/contact_search_background"
+            android:ems="10"
+            android:gravity="top"
+            android:hint="Enter message"
+            android:padding="5dp"
+            android:textColor="@android:color/black" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:gravity="top|center_horizontal"
+            android:orientation="vertical" >
+
+            <com.rey.material.widget.Button
+                android:id="@+id/mobi_send"
+                style="@style/FlatButtonRippleStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Send"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/character_counter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:maxLength="160"
+                android:text="0/160"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/mobi_to_number_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/header"
+        android:background="@color/main_app_bot_menu_color"
+        android:padding="5dp"
+        android:visibility="gone" >
+
+        <EditText
+            android:id="@+id/mobi_to_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/contact_search_background"
+            android:ems="10"
+            android:hint="to :"
+            android:inputType="phone"
+            android:padding="5dp"
+            android:textColor="@android:color/black" />
+    </LinearLayout>
+
+</RelativeLayout>
