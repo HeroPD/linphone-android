@@ -44,12 +44,14 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.rey.material.widget.ImageButton;
 
 public class CallOutgoingActivity extends LinphoneGenericActivity implements OnClickListener{
 	private static CallOutgoingActivity instance;
 
 	private TextView name, number;
-	private ImageView contactPicture, micro, speaker, hangUp;
+	private ImageView contactPicture, micro, speaker;
+	private ImageButton hangUp;
 	private LinphoneCall mCall;
 	private LinphoneCoreListenerBase mListener;
 	private boolean isMicMuted, isSpeakerEnabled;
@@ -76,7 +78,6 @@ public class CallOutgoingActivity extends LinphoneGenericActivity implements OnC
 		name = (TextView) findViewById(R.id.contact_name);
 		number = (TextView) findViewById(R.id.contact_number);
 		contactPicture = (ImageView) findViewById(R.id.contact_picture);
-
 		isMicMuted = false;
 		isSpeakerEnabled = false;
 
@@ -89,7 +90,7 @@ public class CallOutgoingActivity extends LinphoneGenericActivity implements OnC
 		int flags = WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED | WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON;
 		getWindow().addFlags(flags);
 
-		hangUp = (ImageView) findViewById(R.id.outgoing_hang_up);
+		hangUp = (ImageButton) findViewById(R.id.outgoing_hang_up);
 		hangUp.setOnClickListener(this);
 
 		mListener = new LinphoneCoreListenerBase(){

@@ -581,4 +581,7 @@
     <string name="mnp_warning_expire90">Your outgoing and incoming call services have been suspended. Please recharge your balance.</string>
     <string name="mnp_warning_suspend">Your service has been suspended. Please contact our nearest branch.</string>
     <string name="mnp_saved">Saved succesfully</string>
+    <string name="mnp_enter_message">Enter message</string>
+    <string name="mnp_send">SEND</string>
+    <string name="mnp_write_new">Write new</string>
 </resources>

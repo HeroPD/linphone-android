@@ -36,7 +36,7 @@ allprojects {
 apply plugin: 'com.android.application'
 
 dependencies {
-  compile fileTree(dir: 'libs', include: '*.jar')
+  compile fileTree(include: '*.jar', dir: 'libs')
   if (firebaseEnable()) {
     compile 'com.google.firebase:firebase-messaging:9.0.0'
   } else {
@@ -62,14 +62,12 @@ android {
     applicationId getPackageName()
     multiDexEnabled true
   }
-
   lintOptions {
     checkReleaseBuilds false
     // Or, if you prefer, you can continue to check for errors in release builds,
     // but continue the build even when errors are found:
     abortOnError false
   }
-
   // Signing
   signingConfigs {
     release {
@@ -79,13 +77,11 @@ android {
       keyPassword RELEASE_KEY_PASSWORD
     }
   }
-
   buildTypes {
     release {
       signingConfig signingConfigs.release
     }
   }
-
   sourceSets {
     main {
       String firebase = ''
@@ -97,10 +93,10 @@ android {
         println '[Push Notification] Firebase enabled'
       }
       manifest.srcFile 'AndroidManifest.xml'
-      java.srcDirs = ['submodules/linphone/mediastreamer2/java/src','submodules/linphone/java/j2se','submodules/linphone/java/common','submodules/linphone/java/impl','submodules/externals/axmlrpc/src/main/java','submodules/linphone/coreapi/help/java','src']
-      resources.srcDirs = ['submodules/linphone/mediastreamer2/java/src','submodules/linphone/java/j2se','submodules/linphone/java/common','submodules/linphone/java/impl','submodules/externals/axmlrpc/src/main/java','submodules/linphone/coreapi/help/java','src']
-      aidl.srcDirs = ['submodules/linphone/mediastreamer2/java/src','submodules/linphone/java/j2se','submodules/linphone/java/common','submodules/linphone/java/impl','submodules/externals/axmlrpc/src/main/java','submodules/linphone/coreapi/help/java','src']
-      renderscript.srcDirs = ['submodules/linphone/mediastreamer2/java/src','submodules/linphone/java/j2se','submodules/linphone/java/common','submodules/linphone/java/impl','submodules/externals/axmlrpc/src/main/java','submodules/linphone/coreapi/help/java','src']
+      java.srcDirs = ['submodules/linphone/mediastreamer2/java/src', 'submodules/linphone/java/j2se', 'submodules/linphone/java/common', 'submodules/linphone/java/impl', 'submodules/externals/axmlrpc/src/main/java', 'submodules/linphone/coreapi/help/java', 'src']
+      resources.srcDirs = ['submodules/linphone/mediastreamer2/java/src', 'submodules/linphone/java/j2se', 'submodules/linphone/java/common', 'submodules/linphone/java/impl', 'submodules/externals/axmlrpc/src/main/java', 'submodules/linphone/coreapi/help/java', 'src']
+      aidl.srcDirs = ['submodules/linphone/mediastreamer2/java/src', 'submodules/linphone/java/j2se', 'submodules/linphone/java/common', 'submodules/linphone/java/impl', 'submodules/externals/axmlrpc/src/main/java', 'submodules/linphone/coreapi/help/java', 'src']
+      renderscript.srcDirs = ['submodules/linphone/mediastreamer2/java/src', 'submodules/linphone/java/j2se', 'submodules/linphone/java/common', 'submodules/linphone/java/impl', 'submodules/externals/axmlrpc/src/main/java', 'submodules/linphone/coreapi/help/java', 'src']
       res.srcDirs = ['res']
       assets.srcDirs = ['assets']
       jniLibs.srcDir 'libs'
@@ -121,6 +117,8 @@ android {
     debug.setRoot('build-types/debug')
     release.setRoot('build-types/release')
   }
+  compileSdkVersion 23
+  buildToolsVersion '25.0.2'
 }
 
 ///////////// Task /////////////

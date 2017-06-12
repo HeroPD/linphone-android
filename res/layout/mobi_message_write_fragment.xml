@@ -63,7 +63,7 @@
             android:background="@drawable/contact_search_background"
             android:ems="10"
             android:gravity="top"
-            android:hint="Enter message"
+            android:hint="@string/mnp_enter_message"
             android:padding="5dp"
             android:textColor="@android:color/black" />
 
@@ -79,7 +79,7 @@
                 style="@style/FlatButtonRippleStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Send"
+                android:text="@string/mnp_send"
                 android:textColor="@android:color/white" />
 
             <TextView
@@ -109,7 +109,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/contact_search_background"
             android:ems="10"
-            android:hint="to :"
+            android:hint="@string/mnp_enter_number"
             android:inputType="phone"
             android:padding="5dp"
             android:textColor="@android:color/black" />

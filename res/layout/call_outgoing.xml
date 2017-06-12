@@ -117,16 +117,14 @@
 			android:layout_height="wrap_content"
 			android:layout_weight="1"
 			android:padding="15dp"/>
-
-		<ImageView
+		<com.rey.material.widget.ImageButton
 			android:id="@+id/outgoing_hang_up"
-			android:src="@drawable/call_hangup"
-			android:background="@drawable/hangup"
-			android:contentDescription="@string/content_description_hang_up"
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
+			android:layout_height="match_parent"
 			android:layout_weight="0.7"
-			android:padding="12dp"/>
+			android:tint="#ffffff"
+			android:src="@drawable/call_end"
+			style="@style/FlatRedButtonRippleStyle" />
 
 	</LinearLayout>
 

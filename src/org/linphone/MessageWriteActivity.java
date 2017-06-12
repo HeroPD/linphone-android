@@ -43,7 +43,7 @@ public class MessageWriteActivity extends FragmentActivity {
 		if (b != null)
 			name = b.getString("name");
 		else
-			name = "Write new";
+			name = getResources().getString(R.string.mnp_write_new);
 		Log.d("NAME", name);
 		backButton = (Button) findViewById(R.id.back_button);
 		headerRefresh = (ImageButton) findViewById(R.id.header_refresh);

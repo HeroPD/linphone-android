@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <string name="status_connected">Холбогдсон</string>
+    <string name="status_not_connected">Холболт салсан</string>
+    <string name="status_in_progress">Холбондож байна ...</string>
     <string name="mnp_search">Хайх</string>
     <string name="mnp_directory">Directory</string>
     <string name="mnp_remove_dialog_title">УСТГАХ</string>
@@ -101,4 +103,8 @@
     <string name="mnp_warning_expire90">Таны гарах болон орох яриа хаагдсан байна. Та хоногтой картаар дансаа цэнэглэнэ үү.</string>
     <string name="mnp_warning_suspend">Таны дугаар хүчингүй болсон байна. Та өөрт ойр байрлах Мобикомын салбар нэгжид хандана үү.</string>
     <string name="mnp_saved">Амжилттай хадгалагдлаа</string>
+    <string name="mnp_enter_message">Мэссэж оруулна уу</string>
+    <string name="mnp_send">ИЛГЭЭХ</string>
+    <string name="mnp_write_new">Мэссэж</string>
+
 </resources>
