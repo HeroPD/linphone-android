@@ -37,6 +37,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -60,6 +61,8 @@ public class MessageFragment extends BaseFragment {
 	private List<MessageData> data;
 	private LayoutInflater mInflater;
 	private Progress progress;
+	private TextView noMessage;
+	private ProgressBar progressBar;
 
 	public class MessageData {
 
@@ -92,7 +95,8 @@ public class MessageFragment extends BaseFragment {
 		mInflater = inflater;
 		View view = inflater.inflate(R.layout.mobi_message_fragment, container,
 				false);
-
+		noMessage = (TextView) view.findViewById(R.id.noMessage);
+		progressBar = (ProgressBar) view.findViewById(R.id.message_progress);
 		writeNew = (ImageButton) view.findViewById(R.id.new_message);
 		writeNew.setOnClickListener(new View.OnClickListener() {
 
@@ -231,7 +235,7 @@ public class MessageFragment extends BaseFragment {
 		messageList.clear();
 		swipyRefreshLayout.setRefreshing(true);
 		OauthRequest request = new OauthRequest(UserControl.getLinkedNumbers(0,
-				20), RequestType.GET);
+				50), RequestType.GET);
 		request.setOauthListener(new OauthRequest.OauthListener() {
 
 			@Override
@@ -313,6 +317,12 @@ public class MessageFragment extends BaseFragment {
 		// editor.putString("cache_message", json);
 		//
 		// editor.commit();
+		if (messageList.size() > 0){
+			noMessage.setVisibility(View.GONE);
+		}else{
+			noMessage.setVisibility(View.VISIBLE);
+		}
+		progressBar.setVisibility(View.GONE);
 		adapter.notifyDataSetChanged();
 	}
 

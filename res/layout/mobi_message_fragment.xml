@@ -13,15 +13,6 @@
         android:layout_weight="1.0"
         android:background="@android:color/white" >
 
-        <TextView
-            android:id="@+id/noMessage"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="Мессэж олдсонгүй."
-            android:textAppearance="@android:style/TextAppearance.Large"
-            android:textColor="@drawable/text_color" />
-
         <org.linphone.ui.SwipyRefreshLayout
             android:id="@+id/swipyrefreshlayout"
             android:layout_width="match_parent"
@@ -38,6 +29,22 @@
                 android:dividerHeight="1dp" >
             </ListView>
         </org.linphone.ui.SwipyRefreshLayout>
+        <TextView
+            android:id="@+id/noMessage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Мессэж олдсонгүй."
+            android:textAppearance="@android:style/TextAppearance.Large"
+            android:textColor="@drawable/text_color"
+            android:visibility="gone"/>
+
+        <ProgressBar
+            android:id="@+id/message_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+
     </RelativeLayout>
 
     <LinearLayout
