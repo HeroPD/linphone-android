@@ -432,6 +432,12 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppBar">
         </activity>
+        <activity
+            android:name="PromDetailActivity"
+            android:windowSoftInputMode="stateHidden"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppBar">
+        </activity>
     </application>
 
 </manifest>

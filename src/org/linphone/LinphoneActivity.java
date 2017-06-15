@@ -51,9 +51,6 @@ import org.linphone.core.LinphoneCoreFactory;
 import org.linphone.core.LinphoneCoreListenerBase;
 import org.linphone.core.LinphoneProxyConfig;
 import org.linphone.core.Reason;
-import org.linphone.materialtabs.MaterialTab;
-import org.linphone.materialtabs.MaterialTabHost;
-import org.linphone.materialtabs.MaterialTabListener;
 import org.linphone.mediastream.Log;
 import org.linphone.purchase.InAppPurchaseActivity;
 import org.linphone.ui.AddressText;
@@ -77,6 +74,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -161,7 +159,7 @@ public class LinphoneActivity extends LinphoneGenericActivity implements OnClick
 	private String mCurrentMenu;
 	private Fragment mCurrentFragment;
 	private HashMap<String, Stack<Fragment>> mStacks;
-	private MaterialTabHost tabHost;
+	private TabLayout tabLayout;
 
 	private LinphonePreferences mPrefs;
 
@@ -242,88 +240,88 @@ public class LinphoneActivity extends LinphoneGenericActivity implements OnClick
 		mStacks.put(LinphoneActivity.APP_MENU_OTHERS, new Stack<Fragment>());
 
 		setContentView(R.layout.main);
-		tabHost = (MaterialTabHost) findViewById(R.id.tabHost);
-
+		tabLayout = (TabLayout) findViewById(R.id.tab_layout);
 		for (int i = 0; i < 4; i++) {
-			tabHost.addTab(tabHost.newTab().setIcon(getIcon(i))
-					.setTabListener(new MaterialTabListener() {
-
-						@Override
-						public void onTabUnselected(MaterialTab tab) {
-							// TODO Auto-generated method stub
-
-						}
-
-						@Override
-						public void onTabSelected(MaterialTab tab) {
-							// TODO Auto-generated method stub
-							tabHost.setSelectedNavigationItem(tab.getPosition());
-
-							switch (tab.getPosition()) {
-								case 0:
-
-									if (mStacks.get(
-											LinphoneActivity.APP_MENU_CONTACT)
-											.size() == 0) {
-										switchContent(LinphoneActivity.APP_MENU_CONTACT);
-									}
-									hideOtherTabs(R.id.fragmentContainerTab1);
-
-
-									break;
-								case 1:
-									if (mStacks.get(
-											LinphoneActivity.APP_MENU_CALL)
-											.size() == 0) {
-										switchContent(LinphoneActivity.APP_MENU_CALL);
-									}
-									hideOtherTabs(R.id.fragmentContainerTab2);
-
-
-									break;
-								case 2:
-									if (mStacks.get(
-											LinphoneActivity.APP_MENU_CONVERSATION)
-											.size() == 0) {
-										switchContent(LinphoneActivity.APP_MENU_CONVERSATION);
-									}
-									hideOtherTabs(R.id.fragmentContainerTab3);
-
-									break;
-								case 3:
-									if (mStacks.get(
-											LinphoneActivity.APP_MENU_HISTORY)
-											.size() == 0) {
-										switchContent(LinphoneActivity.APP_MENU_HISTORY);
-									}
-									hideOtherTabs(R.id.fragmentContainerTab4);
-									LinphoneManager.getLc().resetMissedCallsCount();
-									displayMissedCalls(LinphoneManager.getLc().getMissedCallsCount());
-
-									break;
-								case 4:
-									if (mStacks.get(
-											LinphoneActivity.APP_MENU_OTHERS)
-											.size() == 0) {
-										switchContent(LinphoneActivity.APP_MENU_OTHERS);
-									}
-									hideOtherTabs(R.id.fragmentContainerTab5);
-
-
-									break;
-								default:
-									break;
-							}
-						}
-
-						@Override
-						public void onTabReselected(MaterialTab tab) {
-							// TODO Auto-generated method stub
-
-						}
-					}));
+			TabLayout.Tab tab = tabLayout.newTab();
+			tab.setCustomView(R.layout.material_tab_icon);
+			ImageView icon = (ImageView)tab.getCustomView().findViewById(R.id.icon);
+			icon.setImageDrawable(getIcon(i));
+			if (i == 1){
+				tabLayout.addTab(tab, true);
+			}else{
+				tabLayout.addTab(tab);
+			}
 		}
-		tabHost.setSelectedNavigationItem(1);
+		tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+			@Override
+			public void onTabSelected(TabLayout.Tab tab) {
+				switch (tab.getPosition()) {
+					case 0:
+
+						if (mStacks.get(
+								LinphoneActivity.APP_MENU_CONTACT)
+								.size() == 0) {
+							switchContent(LinphoneActivity.APP_MENU_CONTACT);
+						}
+						hideOtherTabs(R.id.fragmentContainerTab1);
+
+
+						break;
+					case 1:
+						if (mStacks.get(
+								LinphoneActivity.APP_MENU_CALL)
+								.size() == 0) {
+							switchContent(LinphoneActivity.APP_MENU_CALL);
+						}
+						hideOtherTabs(R.id.fragmentContainerTab2);
+
+
+						break;
+					case 2:
+						if (mStacks.get(
+								LinphoneActivity.APP_MENU_CONVERSATION)
+								.size() == 0) {
+							switchContent(LinphoneActivity.APP_MENU_CONVERSATION);
+						}
+						hideOtherTabs(R.id.fragmentContainerTab3);
+
+						break;
+					case 3:
+						if (mStacks.get(
+								LinphoneActivity.APP_MENU_HISTORY)
+								.size() == 0) {
+							switchContent(LinphoneActivity.APP_MENU_HISTORY);
+						}
+						hideOtherTabs(R.id.fragmentContainerTab4);
+						LinphoneManager.getLc().resetMissedCallsCount();
+						displayMissedCalls(LinphoneManager.getLc().getMissedCallsCount());
+
+						break;
+					case 4:
+						if (mStacks.get(
+								LinphoneActivity.APP_MENU_OTHERS)
+								.size() == 0) {
+							switchContent(LinphoneActivity.APP_MENU_OTHERS);
+						}
+						hideOtherTabs(R.id.fragmentContainerTab5);
+
+
+						break;
+					default:
+						break;
+				}
+			}
+
+			@Override
+			public void onTabUnselected(TabLayout.Tab tab) {
+
+			}
+
+			@Override
+			public void onTabReselected(TabLayout.Tab tab) {
+
+			}
+		});
 		instance = this;
 		loginSIP();
 		fragmentsHistory = new ArrayList<FragmentsAvailable>();
@@ -1273,7 +1271,14 @@ public class LinphoneActivity extends LinphoneGenericActivity implements OnClick
 	}
 
 	public void displayMissedCalls(final int missedCallsCount) {
-		tabHost.tabs.get(3).setNotificationText(missedCallsCount);
+		TextView notifText = (TextView)tabLayout.getTabAt(3).getCustomView().findViewById(R.id.notification);
+		if (missedCallsCount > 0){
+			notifText.setText("" + missedCallsCount);
+			notifText.setVisibility(View.VISIBLE);
+		}
+		else {
+			notifText.setVisibility(View.GONE);
+		}
 //		if (missedCallsCount > 0) {
 //			missedCalls.setText(missedCallsCount + "");
 //			missedCalls.setVisibility(View.VISIBLE);

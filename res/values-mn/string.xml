@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="no_contact">Хадгалсан дугаар байхгүй байна.</string>
     <string name="status_connected">Холбогдсон</string>
     <string name="status_not_connected">Холболт салсан</string>
     <string name="status_in_progress">Холбондож байна ...</string>

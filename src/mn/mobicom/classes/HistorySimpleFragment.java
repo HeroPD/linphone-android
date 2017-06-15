@@ -245,7 +245,7 @@ public class HistorySimpleFragment extends BaseFragment implements
 
 		if (!hideHistoryListAndDisplayMessageIfEmpty()) {
 			if (adapter != null) {
-				adapter.mLogs = mLogs;
+//				adapter.mLogs = mLogs;
 				adapter.notifyDataSetChanged();
 			}
 		}
@@ -257,7 +257,8 @@ public class HistorySimpleFragment extends BaseFragment implements
 		if (isEditMode) {
 			LinphoneCallLog log = mLogs.get(position);
 			LinphoneManager.getLc().removeCallLog(log);
-			mLogs = Arrays.asList(LinphoneManager.getLc().getCallLogs());
+			mLogs.remove(position);
+//			mLogs = Arrays.asList(LinphoneManager.getLc().getCallLogs());
 			if (!hideHistoryListAndDisplayMessageIfEmpty()) {
 				if (historyList.getAdapter() != null) {
 					LogAdapter adapter1 = (LogAdapter) historyList

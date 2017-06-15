@@ -87,8 +87,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:maxLength="160"
-                android:text="0/160"
+                android:text="0/154"
                 android:textColor="@android:color/white" />
         </LinearLayout>
     </LinearLayout>

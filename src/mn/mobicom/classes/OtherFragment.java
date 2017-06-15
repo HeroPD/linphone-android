@@ -12,18 +12,22 @@ import org.linphone.AboutUsActivity;
 import org.linphone.HelpActivity;
 import org.linphone.LinphoneLauncherActivity;
 import org.linphone.MNP75UserInfoActivity;
+import org.linphone.PromDetailActivity;
 import org.linphone.R;
 import org.linphone.SettingsAcitivty;
 import org.linphone.ui.Progress;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -33,11 +37,41 @@ public class OtherFragment extends Fragment {
 
 	public ListView listView;
 	protected Progress progress;
-
+	private String names[];
+	private int pics[];
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		progress = new Progress(getActivity());
+		switch (UserControl.userType) {
+			case MNP75:
+				names = new String[] { getString(R.string.mnp_userinfo),
+						getString(R.string.mnp_settins),
+						getString(R.string.mnp_help),
+						getString(R.string.mnp_about_us),
+						getString(R.string.mnp_promotions),
+						getString(R.string.mnp_disconnect)+" - "+LinphoneLauncherActivity.sipNumber,
+						getString(R.string.mnp_logout) };
+				pics = new int[] { R.drawable.other_profile,
+						R.drawable.other_settings, R.drawable.other_help,
+						R.drawable.other_about, R.drawable.other_promotion,
+						R.drawable.other_disconnect,
+						R.drawable.other_logout };
+				break;
+			case MOBILEOFFICE:
+				names = new String[] { getString(R.string.mnp_settins),
+						getString(R.string.mnp_help),
+						getString(R.string.mnp_about_us),
+						getString(R.string.mnp_connect),
+						getString(R.string.mnp_logout) };
+				pics = new int[] { R.drawable.other_settings,
+						R.drawable.other_help, R.drawable.other_about,
+						R.drawable.other_promotion,
+						R.drawable.other_logout,R.drawable.other_logout };
+				break;
+			default:
+				break;
+		}
 	}
 
 	@Override
@@ -63,40 +97,8 @@ public class OtherFragment extends Fragment {
 
 		Activity context;
 
-		String names[];
-		int pics[];
-
 		public OtherAdapter(Activity context) {
 			this.context = context;
-			switch (UserControl.userType) {
-			case MNP75:
-				names = new String[] { getString(R.string.mnp_userinfo),
-						getString(R.string.mnp_settins),
-						getString(R.string.mnp_help),
-						getString(R.string.mnp_about_us),
-						getString(R.string.mnp_disconnect)+" - "+LinphoneLauncherActivity.sipNumber,
-						getString(R.string.mnp_logout) };
-				pics = new int[] { R.drawable.other_profile,
-						R.drawable.other_settings, R.drawable.other_help,
-						R.drawable.other_about, R.drawable.other_promotion,
-						R.drawable.other_disconnect,
-						R.drawable.other_logout };
-				break;
-			case MOBILEOFFICE:
-				names = new String[] { getString(R.string.mnp_settins),
-						getString(R.string.mnp_help),
-						getString(R.string.mnp_about_us),
-						getString(R.string.mnp_connect),
-						getString(R.string.mnp_logout) };
-				pics = new int[] { R.drawable.other_settings,
-						R.drawable.other_help, R.drawable.other_about,
-						R.drawable.other_promotion, 
-						R.drawable.other_logout,R.drawable.other_logout };
-				break;
-			default:
-				break;
-			}
-
 		}
 
 		@Override
@@ -184,6 +186,10 @@ public class OtherFragment extends Fragment {
 
 						break;
 					case 3:
+						startActivity(new Intent(getActivity(),
+								PromDetailActivity.class));
+						break;
+					case 4:
 						final MaterialDialog mMaterialDialog = new MaterialDialog(getActivity());
 						mMaterialDialog.setTitle(getResources().getString(R.string.mnp_disconnect_warning_header))
 								.setMessage(getResources().getString(R.string.mnp_disconnect_warning))
@@ -204,7 +210,24 @@ public class OtherFragment extends Fragment {
 
 						mMaterialDialog.show();
 						break;
-					case 4:
+					case 5:
+						if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+							// Log.d(C.TAG, "Using ClearCookies code for API >=" +
+							// String.valueOf(Build.VERSION_CODES.LOLLIPOP_MR1));
+							CookieManager.getInstance().removeAllCookies(null);
+							CookieManager.getInstance().flush();
+						} else {
+							// Log.d(C.TAG, "Using ClearCookies code for API <" +
+							// String.valueOf(Build.VERSION_CODES.LOLLIPOP_MR1));
+							CookieSyncManager cookieSyncMngr = CookieSyncManager
+									.createInstance(getActivity());
+							cookieSyncMngr.startSync();
+							CookieManager cookieManager = CookieManager.getInstance();
+							cookieManager.removeAllCookie();
+							cookieManager.removeSessionCookie();
+							cookieSyncMngr.stopSync();
+							cookieSyncMngr.sync();
+						}
 						Intent broadcastintent = new Intent();
 						broadcastintent.setAction("com.package.ACTION_LOGOUT");
 						getActivity().sendBroadcast(broadcastintent);

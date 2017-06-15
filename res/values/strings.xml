@@ -2,10 +2,10 @@
 <resources>
 
     <!-- Custom -->
-    <string name="app_name">Linphone</string>
-    <string name="service_name">Linphone Service</string>
-    <string name="addressbook_label">Linphone</string>
-    <string name="notification_title">Linphone</string>
+    <string name="app_name">MNP75</string>
+    <string name="service_name">MNP75 Service</string>
+    <string name="addressbook_label">MNP75</string>
+    <string name="notification_title">MNP75</string>
     <string name="wait_dialog_text">Starting up</string>
     <string name="notification_registered">%s registered</string>
     <string name="notification_register_failure">%s failed to register</string>

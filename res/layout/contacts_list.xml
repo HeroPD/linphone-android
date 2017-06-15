@@ -153,7 +153,7 @@
 			android:id="@+id/noContact"
 			android:text="@string/no_contact"
 			android:visibility="gone"
-			style="@style/font6"
+			style="@style/font11"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:gravity="center"

@@ -405,6 +405,9 @@ public class ContactsListFragment extends Fragment implements OnClickListener, O
 
 		if (adapter.getCount() > 0) {
 			contactsFetchInProgress.setVisibility(View.GONE);
+		}else{
+			noContact.setVisibility(View.VISIBLE);
+			contactsFetchInProgress.setVisibility(View.GONE);
 		}
 		ContactsManager.getInstance().setLinphoneContactsPrefered(onlyDisplayLinphoneContacts);
 	}

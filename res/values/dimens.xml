@@ -23,10 +23,10 @@
     <!-- App text sizes -->
     <dimen name="app_text_extra_small">12sp</dimen>
     <dimen name="app_text_small">14sp</dimen>
-    <dimen name="app_text_medium">18sp</dimen>
-    <dimen name="app_text_large">22sp</dimen>
-    <dimen name="app_text_extra_large">25sp</dimen>
-    <dimen name="app_text_action_back">20sp</dimen>
+    <dimen name="app_text_medium">16sp</dimen>
+    <dimen name="app_text_large">20sp</dimen>
+    <dimen name="app_text_extra_large">22sp</dimen>
+    <dimen name="app_text_action_back">16sp</dimen>
     <dimen name="app_text_section">15sp</dimen>
     <!-- InCall Screen Sizes -->
     <dimen name="app_drawable_top_padding">30dp</dimen>

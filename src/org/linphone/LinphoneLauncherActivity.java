@@ -31,6 +31,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.http.SslError;
@@ -78,6 +79,7 @@ public class LinphoneLauncherActivity extends Activity {
 	private String code;
 	public static String sipNumber;
 	public static String sipPass;
+	public static HashMap<String, Bitmap> imageCache = new HashMap<String, Bitmap>();
 
 	public static boolean isNetworkConnected(Context context) {
 		ConnectivityManager cm = (ConnectivityManager) context
@@ -233,26 +235,8 @@ public class LinphoneLauncherActivity extends Activity {
 	}
 
 	public void showLogin(boolean lang) {
-
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-			// Log.d(C.TAG, "Using ClearCookies code for API >=" +
-			// String.valueOf(Build.VERSION_CODES.LOLLIPOP_MR1));
-			CookieManager.getInstance().removeAllCookies(null);
-			CookieManager.getInstance().flush();
-		} else {
-			// Log.d(C.TAG, "Using ClearCookies code for API <" +
-			// String.valueOf(Build.VERSION_CODES.LOLLIPOP_MR1));
-			CookieSyncManager cookieSyncMngr = CookieSyncManager
-					.createInstance(this);
-			cookieSyncMngr.startSync();
-			CookieManager cookieManager = CookieManager.getInstance();
-			cookieManager.removeAllCookie();
-			cookieManager.removeSessionCookie();
-			cookieSyncMngr.stopSync();
-			cookieSyncMngr.sync();
-		}
 		web.clearCache(true);
-		web.clearHistory();
+//		web.clearHistory();
 		// voip%2Fsip+voip%2Fuserinfo+voip%2Fgetallmessage+voip%2Fdeletemessage+voip%2Flinkednumber+voip%2Fcallforward%2Fcheck+voip%2Fcallforward%2Foff+voip%2Fcallforward%2Fon+voip%2Fsms%2Fsend+voip%2Fsms%2Finbox+voip%2Fsms%2Foutbox+voip%2Fsms%2Fread+voip%2Fsms%2Findelete+voip%2Fsms%2Foutdelete+mo%2Fget_sip+mo%2Fget_profile+mo%2Fget_broadworksmobility+mo%2Fget_callforwardingalways+mo%2Fget_callforwardingbusy+mo%2Fget_callforwardingnoanswer+mo%2Fget_callforwardingnotreachable+mo%2Fget_calllogs+mo%2Fget_missed+mo%2Fget_placed+mo%2Fget_received+mo%2Fget_group+mo%2Fget_callinglineiddeliveryblocking+mo%2Fget_simultaneousringpersonal+mo%2Fget_sequentialring+mo%2Fput_broadworksmobility+mo%2Fput_callforwardingalways+mo%2Fput_callforwardingbusy+mo%2Fput_callforwardingnoanswer+mo%2Fput_callforwardingnotreachable+mo%2Fdelete_calllogs+mo%2Fdelete_missed+mo%2Fdelete_placed+mo%2Fdelete_received+mo%2Fput_callinglineiddeliveryblocking+mo%2Fput_simultaneousringpersonal+mo%2Fput_sequentialring+mo%2Fpost_callthrough
 		if (lang)
 			web.loadUrl("https://api.mobicom.mn/oauth/authorization/auth?client_id=f5dew6eilfL3WJFi&redirect_uri=com.mobinet.mnp75://oauth&response_type=code&scope=voip%2Fsip+connect%2Fvoip+voip%2Fuserinfo+voip%2Fcallforward%2Fcheck+voip%2Fcallforward%2Foff+voip%2Fcallforward%2Fon+voip%2Fsms%2Fsend+voip%2Fgetallmessage+voip%2Fdeletemessage+voip%2Flinkednumber+mo%2Fget_sip+mo%2Fget_profile+mo%2Fget_broadworksmobility+mo%2Fget_callforwardingalways+mo%2Fget_callforwardingbusy+mo%2Fget_callforwardingnoanswer+mo%2Fget_callforwardingnotreachable+mo%2Fget_calllogs+mo%2Fget_missed+mo%2Fget_placed+mo%2Fget_received+mo%2Fget_group+mo%2Fget_callinglineiddeliveryblocking+mo%2Fget_simultaneousringpersonal+mo%2Fget_sequentialring+mo%2Fput_broadworksmobility+mo%2Fput_callforwardingalways+mo%2Fput_callforwardingbusy+mo%2Fput_callforwardingnoanswer+mo%2Fput_callforwardingnotreachable+mo%2Fdelete_calllogs+mo%2Fdelete_missed+mo%2Fdelete_placed+mo%2Fdelete_received+mo%2Fput_callinglineiddeliveryblocking+mo%2Fput_simultaneousringpersonal+mo%2Fput_sequentialring+mo%2Fpost_callthrough&ln=en");

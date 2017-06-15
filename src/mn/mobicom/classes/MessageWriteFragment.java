@@ -116,7 +116,7 @@ public class MessageWriteFragment extends Fragment {
 			@Override
 			public void afterTextChanged(Editable s) {
 				// TODO Auto-generated method stub
-				characterCounter.setText("" + s.length() + "/160");
+				characterCounter.setText("" + s.length() + "/154");
 			}
 		});
 
@@ -568,10 +568,12 @@ public class MessageWriteFragment extends Fragment {
 				if (message.errorMessage != null) {
 					holder2.messageStatus.setImageResource(R.drawable.failed);
 				} else {
-					holder2.messageStatus
-							.setImageResource(R.drawable.ic_single_tick);
+					if (message.status == 3){
+						holder2.messageStatus.setImageResource(R.drawable.ic_double_tick);
+					}else{
+						holder2.messageStatus.setImageResource(R.drawable.ic_single_tick);
+					}
 				}
-
 				return view;
 			}
 
