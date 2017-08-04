@@ -46,6 +46,7 @@ import android.widget.Toast;
 import com.rey.material.widget.ImageButton;
 
 import me.drakeet.materialdialog.MaterialDialog;
+import mn.mobicom.classes.CheckState;
 import mn.mobicom.classes.UserControl;
 import mn.mobicom.oauth2.OauthRequest;
 
@@ -153,83 +154,44 @@ public class CallButton extends ImageButton implements OnClickListener, AddressA
 	}
 
 	private void normalCall(){
-		if (LinphoneLauncherActivity.STATE.equals("create") || LinphoneLauncherActivity.STATE.equals("use")){
-			try {
-				if (!LinphoneManager.getInstance().acceptCallIfIncomingPending()) {
-					if (mAddress.getText().length() > 0) {
-						LinphoneManager.getInstance().newOutgoingCall(mAddress);
-					} else {
-						if (LinphonePreferences.instance().isBisFeatureEnabled()) {
-							LinphoneCallLog[] logs = LinphoneManager.getLc().getCallLogs();
-							LinphoneCallLog log = null;
-							for (LinphoneCallLog l : logs) {
-								if (l.getDirection() == CallDirection.Outgoing) {
-									log = l;
-									break;
+		CheckState.checkState(context, new CheckState.StateCreateOrUse() {
+			@Override
+			public void action() {
+				try {
+					if (!LinphoneManager.getInstance().acceptCallIfIncomingPending()) {
+						if (mAddress.getText().length() > 0) {
+							LinphoneManager.getInstance().newOutgoingCall(mAddress);
+						} else {
+							if (LinphonePreferences.instance().isBisFeatureEnabled()) {
+								LinphoneCallLog[] logs = LinphoneManager.getLc().getCallLogs();
+								LinphoneCallLog log = null;
+								for (LinphoneCallLog l : logs) {
+									if (l.getDirection() == CallDirection.Outgoing) {
+										log = l;
+										break;
+									}
 								}
-							}
-							if (log == null) {
-								return;
-							}
+								if (log == null) {
+									return;
+								}
 
-							LinphoneProxyConfig lpc = LinphoneManager.getLc().getDefaultProxyConfig();
-							if (lpc != null && log.getTo().getDomain().equals(lpc.getDomain())) {
-								mAddress.setText(log.getTo().getUserName());
-							} else {
-								mAddress.setText(log.getTo().asStringUriOnly());
+								LinphoneProxyConfig lpc = LinphoneManager.getLc().getDefaultProxyConfig();
+								if (lpc != null && log.getTo().getDomain().equals(lpc.getDomain())) {
+									mAddress.setText(log.getTo().getUserName());
+								} else {
+									mAddress.setText(log.getTo().asStringUriOnly());
+								}
+								mAddress.setSelection(mAddress.getText().toString().length());
+								mAddress.setDisplayedName(log.getTo().getDisplayName());
 							}
-							mAddress.setSelection(mAddress.getText().toString().length());
-							mAddress.setDisplayedName(log.getTo().getDisplayName());
 						}
 					}
+				} catch (LinphoneCoreException e) {
+					LinphoneManager.getInstance().terminateCall();
+					onWrongDestinationAddress();
 				}
-			} catch (LinphoneCoreException e) {
-				LinphoneManager.getInstance().terminateCall();
-				onWrongDestinationAddress();
 			}
-		}else if (LinphoneLauncherActivity.STATE.equals("expire14")){
-			final MaterialDialog mMaterialDialog = new MaterialDialog(
-					context);
-			mMaterialDialog
-					.setMessage(getResources().getString(R.string.mnp_warning_expire14))
-					.setPositiveButton("OK",
-							new View.OnClickListener() {
-								@Override
-								public void onClick(View v) {
-									mMaterialDialog.dismiss();
-								}
-							});
-
-			mMaterialDialog.show();
-		}else if (LinphoneLauncherActivity.STATE.equals("expire90")){
-			final MaterialDialog mMaterialDialog = new MaterialDialog(
-					context);
-			mMaterialDialog
-					.setMessage(getResources().getString(R.string.mnp_warning_expire90))
-					.setPositiveButton("OK",
-							new View.OnClickListener() {
-								@Override
-								public void onClick(View v) {
-									mMaterialDialog.dismiss();
-								}
-							});
-
-			mMaterialDialog.show();
-		}else if (LinphoneLauncherActivity.STATE.equals("suspend")){
-			final MaterialDialog mMaterialDialog = new MaterialDialog(
-					context);
-			mMaterialDialog
-					.setMessage(getResources().getString(R.string.mnp_warning_suspend))
-					.setPositiveButton("OK",
-							new View.OnClickListener() {
-								@Override
-								public void onClick(View v) {
-									mMaterialDialog.dismiss();
-								}
-							});
-
-			mMaterialDialog.show();
-		}
+		});
 	}
 	
 	protected void onWrongDestinationAddress() {

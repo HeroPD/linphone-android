@@ -203,7 +203,7 @@ public class HistorySimpleFragment extends BaseFragment implements
 	@Override
 	public void onClick(View v) {
 		
-		LogAdapter adapter = (LogAdapter) historyList
+		final LogAdapter adapter = (LogAdapter) historyList
 				.getAdapter();
 		
 		int id = v.getId();
@@ -220,13 +220,39 @@ public class HistorySimpleFragment extends BaseFragment implements
 				onlyDisplayMissedCalls = true;
 				v.setTag("1");
 				tempButton.setText(getString(R.string.mnp_all));
-
+				if (!hideHistoryListAndDisplayMessageIfEmpty()) {
+					if (adapter != null) {
+						adapter.mLogs = mLogs;
+						adapter.notifyDataSetChanged();
+					}
+				}
 			} else {
 				v.setTag("0");
 				tempButton.setText(getString(R.string.mnp_missed));
 				onlyDisplayMissedCalls = false;
+				Thread t = new Thread(new Runnable() {
 
-				mLogs = Arrays.asList(LinphoneManager.getLc().getCallLogs());
+					@Override
+					public void run() {
+						// TODO Auto-generated method stub
+						mLogs = Arrays.asList(LinphoneManager.getLc().getCallLogs());
+						getActivity().runOnUiThread(new Runnable() {
+
+							@Override
+							public void run() {
+								// TODO Auto-generated method stub
+								if (!hideHistoryListAndDisplayMessageIfEmpty()) {
+									if (adapter != null) {
+										adapter.mLogs = mLogs;
+										adapter.notifyDataSetChanged();
+									}
+								}
+							}
+						});
+					}
+				});
+				t.start();
+
 
 			}
 
@@ -234,38 +260,96 @@ public class HistorySimpleFragment extends BaseFragment implements
 			hideDeleteAllButton();
 			isEditMode = false;
 			adapter.isEditMode = false;
+			Thread t = new Thread(new Runnable() {
+
+				@Override
+				public void run() {
+					// TODO Auto-generated method stub
+					mLogs = Arrays.asList(LinphoneManager.getLc().getCallLogs());
+					getActivity().runOnUiThread(new Runnable() {
+
+						@Override
+						public void run() {
+							// TODO Auto-generated method stub
+							if (!hideHistoryListAndDisplayMessageIfEmpty()) {
+								if (adapter != null) {
+									adapter.mLogs = mLogs;
+									adapter.notifyDataSetChanged();
+								}
+							}
+						}
+					});
+				}
+			});
+			t.start();
 		} else if (id == R.id.remove_button) {
 			LinphoneManager.getLc().clearCallLogs();
 			mLogs = new ArrayList<LinphoneCallLog>();
+			if (!hideHistoryListAndDisplayMessageIfEmpty()) {
+				if (adapter != null) {
+					adapter.notifyDataSetChanged();
+				}
+			}
 		} else if (id == R.id.edit_button) {
 			showDeleteAllButton();
 			isEditMode = true;
 			adapter.isEditMode = true;
-		}
+			Thread t = new Thread(new Runnable() {
 
-		if (!hideHistoryListAndDisplayMessageIfEmpty()) {
-			if (adapter != null) {
-//				adapter.mLogs = mLogs;
-				adapter.notifyDataSetChanged();
-			}
+				@Override
+				public void run() {
+					// TODO Auto-generated method stub
+					mLogs = Arrays.asList(LinphoneManager.getLc().getCallLogs());
+					getActivity().runOnUiThread(new Runnable() {
+
+						@Override
+						public void run() {
+							// TODO Auto-generated method stub
+							if (!hideHistoryListAndDisplayMessageIfEmpty()) {
+								if (adapter != null) {
+									adapter.mLogs = mLogs;
+									adapter.notifyDataSetChanged();
+								}
+							}
+						}
+					});
+				}
+			});
+			t.start();
 		}
 	}
 
 	@Override
-	public void onItemClick(AdapterView<?> adapter, View view, int position,
+	public void onItemClick(final AdapterView<?> adapter, View view, int position,
 			long id) {
 		if (isEditMode) {
 			LinphoneCallLog log = mLogs.get(position);
 			LinphoneManager.getLc().removeCallLog(log);
 			mLogs.remove(position);
-//			mLogs = Arrays.asList(LinphoneManager.getLc().getCallLogs());
-			if (!hideHistoryListAndDisplayMessageIfEmpty()) {
-				if (historyList.getAdapter() != null) {
-					LogAdapter adapter1 = (LogAdapter) historyList
-							.getAdapter();
-					adapter1.notifyDataSetChanged();
+			final LogAdapter logadapter = (LogAdapter) historyList
+					.getAdapter();
+			Thread t = new Thread(new Runnable() {
+
+				@Override
+				public void run() {
+					// TODO Auto-generated method stub
+					mLogs = Arrays.asList(LinphoneManager.getLc().getCallLogs());
+					getActivity().runOnUiThread(new Runnable() {
+
+						@Override
+						public void run() {
+							// TODO Auto-generated method stub
+							if (!hideHistoryListAndDisplayMessageIfEmpty()) {
+								if (logadapter != null) {
+									logadapter.mLogs = mLogs;
+									logadapter.notifyDataSetChanged();
+								}
+							}
+						}
+					});
 				}
-			}
+			});
+			t.start();
 		} else {
 			if (LinphoneActivity.isInstanciated()) {
 				LinphoneCallLog log = mLogs.get(position);

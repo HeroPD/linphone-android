@@ -252,6 +252,7 @@
     <string name="error_user_busy">User busy</string>
     <string name="error_user_not_found">User not found</string>
     <string name="error_incompatible_media">Incompatible media parameters</string>
+    <string name="temporary_unavailable">The number you have called is not reachable</string>
     <string name="error_low_bandwidth">Your caller has low bandwidth, video cannot be started</string>
     <string name="error_network_unreachable">Network is unreachable</string>
     <string name="error_bad_credentials">Bad credentials</string>
@@ -584,4 +585,5 @@
     <string name="mnp_enter_message">Enter message</string>
     <string name="mnp_send">SEND</string>
     <string name="mnp_write_new">Write new</string>
+    <string name="no_message">No message</string>
 </resources>

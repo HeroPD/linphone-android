@@ -50,10 +50,11 @@ public final class TestFragment extends Fragment {
     	ImageView imageView = (ImageView) view.findViewById(R.id.prom_image);
     	TextView titleTextView = (TextView) view.findViewById(R.id.prom_title);
     	TextView textView = (TextView) view.findViewById(R.id.prom_d_text);
-    	if (LinphoneLauncherActivity.imageCache.get("http://staticcss.mobicom.mn/large/"+pic) == null){
-    		new ImageLoadTask("http://staticcss.mobicom.mn/large/"+pic, imageView).execute();
+        String imageDomain = "https://z-shop.mobicom.mn/";
+    	if (LinphoneLauncherActivity.imageCache.get(imageDomain+pic) == null){
+    		new ImageLoadTask(imageDomain+pic, imageView).execute();
     	}else{
-    		imageView.setImageBitmap(LinphoneLauncherActivity.imageCache.get("http://staticcss.mobicom.mn/large/"+pic));
+    		imageView.setImageBitmap(LinphoneLauncherActivity.imageCache.get(imageDomain+pic));
     	}
         titleTextView.setText(title);
         textView.setText(text);

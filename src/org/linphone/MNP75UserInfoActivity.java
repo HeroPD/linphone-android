@@ -94,6 +94,7 @@ public class MNP75UserInfoActivity extends BaseActivity {
 				items.add(new InfoMnp75(getString(R.string.mnp_valid_date), object.getString("endDate")));
 				items.add(new InfoMnp75(getString(R.string.mnp_type), object
 						.getString("isPrepaid")));
+				LinphoneLauncherActivity.STATE = object.getString("state");
 				items.add(new InfoMnp75(getString(R.string.mnp_status), object.getString("state")));
 			}
 		} catch (JSONException e) {

@@ -144,70 +144,76 @@ public class MessageWriteFragment extends Fragment {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				String localValue = null;
-				String localNumber = null;
-				String localSms = null;
-				if (number == null) {
-					localNumber = toNumber.getText().toString();
 
-				} else {
-					localNumber = number;
-				}
-
-				localSms = message.getText().toString();
-				localValue = "{\"callednumbers\":\"" + localNumber
-						+ "\",\"sms\":\"" + localSms + "\"}";
-
-				final String infoNumber = localNumber;
-				final String infoSms = localSms;
-				OauthRequest request = new OauthRequest(UserControl.getSend(),
-						RequestType.POST);
-				request.setOauthListener(new OauthRequest.OauthListener() {
-
+				CheckState.checkState(getActivity(), new CheckState.StateCreateOrUse() {
 					@Override
-					public void onResult(String result) {
-						// TODO Auto-generated method stub
-						Log.d("SENDING MESSAGE", result);
-						Gson gson = new Gson();
-						BaseModel model = gson
-								.fromJson(result, BaseModel.class);
+					public void action() {
+						String localValue = null;
+						String localNumber = null;
+						String localSms = null;
+						if (number == null) {
+							localNumber = toNumber.getText().toString();
 
-						if (model.result == 0) {
-
-							if (number == null) {
-								numberContainer.setVisibility(View.INVISIBLE);
-								MessageWriteActivity act = (MessageWriteActivity) getActivity();
-								act.getBackButton().setText(
-										toNumber.getText().toString());
-								number = toNumber.getText().toString();
-							}
-
-							if (number != null) {
-								if (!waitRefresh)
-									retrieveData();
-							}
+						} else {
+							localNumber = number;
 						}
 
-					}
+						localSms = message.getText().toString();
+						localValue = "{\"callednumbers\":\"" + localNumber
+								+ "\",\"sms\":\"" + localSms + "\"}";
 
-					@Override
-					public void onBackgroundException(Exception e) {
-						// TODO Auto-generated method stub
-					}
+						final String infoNumber = localNumber;
+						final String infoSms = localSms;
+						OauthRequest request = new OauthRequest(UserControl.getSend(),
+								RequestType.POST);
+						request.setOauthListener(new OauthRequest.OauthListener() {
 
-					@Override
-					public void onResultCodeWrong(String code) {
-						// TODO Auto-generated method stub
-					}
+							@Override
+							public void onResult(String result) {
+								// TODO Auto-generated method stub
+								Log.d("SENDING MESSAGE", result);
+								Gson gson = new Gson();
+								BaseModel model = gson
+										.fromJson(result, BaseModel.class);
 
-					@Override
-					public void onErrorDialogOkClick() {
-						// TODO Auto-generated method stub
+								if (model.result == 0) {
 
+									if (number == null) {
+										numberContainer.setVisibility(View.INVISIBLE);
+										MessageWriteActivity act = (MessageWriteActivity) getActivity();
+										act.getBackButton().setText(
+												toNumber.getText().toString());
+										number = toNumber.getText().toString();
+									}
+
+									if (number != null) {
+										if (!waitRefresh)
+											retrieveData();
+									}
+								}
+
+							}
+
+							@Override
+							public void onBackgroundException(Exception e) {
+								// TODO Auto-generated method stub
+							}
+
+							@Override
+							public void onResultCodeWrong(String code) {
+								// TODO Auto-generated method stub
+							}
+
+							@Override
+							public void onErrorDialogOkClick() {
+								// TODO Auto-generated method stub
+
+							}
+						}, localValue, getActivity());
+						request.execute();
+						message.setText("");
 					}
-				}, localValue, getActivity());
-				request.execute();
-				message.setText("");
+				});
 			}
 		});
 		message.clearFocus();

@@ -106,7 +106,7 @@ public class DialerFragment extends Fragment {
 			numpad.setAddressWidget(mAddress);
 		}
 
-		addContact.setEnabled(!(LinphoneActivity.isInstanciated() && LinphoneManager.getLc().getCallsNb() > 0));
+//		addContact.setEnabled(!(LinphoneActivity.isInstanciated() && LinphoneManager.getLc().getCallsNb() > 0));
 
 		addContactListener = new OnClickListener() {
 			@Override
@@ -221,7 +221,7 @@ public class DialerFragment extends Fragment {
 			} else {
 				mCall.setImageResource(R.drawable.bot_call_selector);
 			}
-			addContact.setEnabled(false);
+//			addContact.setEnabled(false);
 			addContact.setImageResource(R.drawable.bot_add_contact_selector);
 			addContact.setOnClickListener(addContactListener);
 			enableDisableAddContact();
@@ -229,7 +229,7 @@ public class DialerFragment extends Fragment {
 	}
 
 	public void enableDisableAddContact() {
-		addContact.setEnabled(LinphoneManager.getLc().getCallsNb() > 0 || !mAddress.getText().toString().equals(""));
+//		addContact.setEnabled(LinphoneManager.getLc().getCallsNb() > 0 || !mAddress.getText().toString().equals(""));
 	}
 
 	public void displayTextInAddressBar(String numberOrSipAddress) {

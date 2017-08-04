@@ -28,6 +28,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
+import android.webkit.WebView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -36,6 +37,7 @@ import android.widget.TextView;
 public class OtherFragment extends Fragment {
 
 	public ListView listView;
+	private WebView webView;
 	protected Progress progress;
 	private String names[];
 	private int pics[];
@@ -82,7 +84,7 @@ public class OtherFragment extends Fragment {
 				false);
 		listView = (ListView) view.findViewById(R.id.other_listview);
 		listView.setAdapter(new OtherAdapter(getActivity()));
-
+		webView = (WebView) view.findViewById(R.id.webView);
 		return view;
 	}
 
@@ -211,27 +213,15 @@ public class OtherFragment extends Fragment {
 						mMaterialDialog.show();
 						break;
 					case 5:
-						if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-							// Log.d(C.TAG, "Using ClearCookies code for API >=" +
-							// String.valueOf(Build.VERSION_CODES.LOLLIPOP_MR1));
-							CookieManager.getInstance().removeAllCookies(null);
-							CookieManager.getInstance().flush();
-						} else {
-							// Log.d(C.TAG, "Using ClearCookies code for API <" +
-							// String.valueOf(Build.VERSION_CODES.LOLLIPOP_MR1));
-							CookieSyncManager cookieSyncMngr = CookieSyncManager
-									.createInstance(getActivity());
-							cookieSyncMngr.startSync();
-							CookieManager cookieManager = CookieManager.getInstance();
-							cookieManager.removeAllCookie();
-							cookieManager.removeSessionCookie();
-							cookieSyncMngr.stopSync();
-							cookieSyncMngr.sync();
-						}
-						Intent broadcastintent = new Intent();
-						broadcastintent.setAction("com.package.ACTION_LOGOUT");
-						getActivity().sendBroadcast(broadcastintent);
-						getActivity().finish();
+						UserControl.logoutURL(webView, new UserControl.LogoutAction() {
+							@Override
+							public void loggedOut() {
+								Intent broadcastintent = new Intent();
+								broadcastintent.setAction("com.package.ACTION_LOGOUT");
+								getActivity().sendBroadcast(broadcastintent);
+								getActivity().finish();
+							}
+						});
 						break;
 					default:
 						break;
@@ -257,14 +247,20 @@ public class OtherFragment extends Fragment {
 				try {
 					JSONObject object = new JSONObject(result);
 					if (object.getInt("code") == 0) {
-						Intent broadcastintent = new Intent();
-						broadcastintent.setAction("com.package.ACTION_LOGOUT");
-						getActivity().sendBroadcast(broadcastintent);
-						getActivity().finish();
-					}else{
-						if (!object.isNull("info")){
+						UserControl.userType = SipUserType.DEFAULT;
+						UserControl.logoutURL(webView, new UserControl.LogoutAction() {
+							@Override
+							public void loggedOut() {
+								Intent broadcastintent = new Intent();
+								broadcastintent.setAction("com.package.ACTION_LOGOUT");
+								getActivity().sendBroadcast(broadcastintent);
+								getActivity().finish();
+							}
+						});
+					} else {
+						if (!object.isNull("info")) {
 							showAlert(object.getString("info"));
-						}else{
+						} else {
 							showAlert(getResources().getString(R.string.connectionerror));
 						}
 					}

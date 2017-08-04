@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <string name="error_call_declined">Дуудлага салгагдсан байна</string>
+    <string name="error_user_busy">Хэрэглэгч завгүй байна</string>
+    <string name="error_user_not_found">Хэрэглэгч олдсонгүй</string>
+    <string name="temporary_unavailable">Таны залгасан дугаар холбогдох боломжгүй байна.</string>
+
     <string name="no_contact">Хадгалсан дугаар байхгүй байна.</string>
     <string name="status_connected">Холбогдсон</string>
     <string name="status_not_connected">Холболт салсан</string>
@@ -107,5 +113,6 @@
     <string name="mnp_enter_message">Мэссэж оруулна уу</string>
     <string name="mnp_send">ИЛГЭЭХ</string>
     <string name="mnp_write_new">Мэссэж</string>
+    <string name="no_message">Мессэж олдсонгүй.</string>
 
 </resources>

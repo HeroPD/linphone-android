@@ -264,6 +264,7 @@ public class MessageFragment extends BaseFragment {
 						public void run() {
 							// TODO Auto-generated method stub
 							swipyRefreshLayout.setRefreshing(false);
+                            refreshData();
 						}
 					});
 				}
@@ -274,13 +275,13 @@ public class MessageFragment extends BaseFragment {
 			public void onResultCodeWrong(String code) {
 				getActivity().runOnUiThread(new Runnable() {
 
-					@Override
-					public void run() {
-						// TODO Auto-generated method stub
-						swipyRefreshLayout.setRefreshing(false);
+                    @Override
+                    public void run() {
+                        // TODO Auto-generated method stub
+                        swipyRefreshLayout.setRefreshing(false);
+                        refreshData();
 					}
 				});
-
 				// TODO Auto-generated method stub
 
 			}

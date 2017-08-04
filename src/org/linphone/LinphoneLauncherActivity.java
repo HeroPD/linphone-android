@@ -52,6 +52,8 @@ import com.google.gson.Gson;
 import com.mobinet.model.VoipSipModel;
 import com.rey.material.widget.Button;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 
@@ -80,6 +82,7 @@ public class LinphoneLauncherActivity extends Activity {
 	public static String sipNumber;
 	public static String sipPass;
 	public static HashMap<String, Bitmap> imageCache = new HashMap<String, Bitmap>();
+	public boolean connectingToSip = false;
 
 	public static boolean isNetworkConnected(Context context) {
 		ConnectivityManager cm = (ConnectivityManager) context
@@ -139,6 +142,7 @@ public class LinphoneLauncherActivity extends Activity {
 		WebSettings settings = web.getSettings();
 		settings.setJavaScriptEnabled(true);
 		settings.setDefaultTextEncodingName("utf-8");
+		settings.setUserAgentString("Android");
 		web.setWebViewClient(new WebViewClient() {
 			@Override
 			public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -157,7 +161,6 @@ public class LinphoneLauncherActivity extends Activity {
 					if (parametr.containsKey("systems")) {
 						String service = parametr.get("systems");
 						String[] services = service.split("%2C");
-						UserControl.userType = UserControl.SipUserType.DEFAULT;
 						for (String item : services) {
 							if (item.equalsIgnoreCase("mobinetphone")) {
 								UserControl.userType = UserControl.SipUserType.MNP75;
@@ -192,6 +195,15 @@ public class LinphoneLauncherActivity extends Activity {
 				// Log.i(TAG, "failingUrl: " + failingUrl);
 			}
 		});
+	}
+
+	@Override
+	public void onBackPressed() {
+		if (web.canGoBack()) {
+			web.goBack();
+		} else {
+			finish();
+		}
 	}
 
 	@Override
@@ -241,7 +253,7 @@ public class LinphoneLauncherActivity extends Activity {
 		if (lang)
 			web.loadUrl("https://api.mobicom.mn/oauth/authorization/auth?client_id=f5dew6eilfL3WJFi&redirect_uri=com.mobinet.mnp75://oauth&response_type=code&scope=voip%2Fsip+connect%2Fvoip+voip%2Fuserinfo+voip%2Fcallforward%2Fcheck+voip%2Fcallforward%2Foff+voip%2Fcallforward%2Fon+voip%2Fsms%2Fsend+voip%2Fgetallmessage+voip%2Fdeletemessage+voip%2Flinkednumber+mo%2Fget_sip+mo%2Fget_profile+mo%2Fget_broadworksmobility+mo%2Fget_callforwardingalways+mo%2Fget_callforwardingbusy+mo%2Fget_callforwardingnoanswer+mo%2Fget_callforwardingnotreachable+mo%2Fget_calllogs+mo%2Fget_missed+mo%2Fget_placed+mo%2Fget_received+mo%2Fget_group+mo%2Fget_callinglineiddeliveryblocking+mo%2Fget_simultaneousringpersonal+mo%2Fget_sequentialring+mo%2Fput_broadworksmobility+mo%2Fput_callforwardingalways+mo%2Fput_callforwardingbusy+mo%2Fput_callforwardingnoanswer+mo%2Fput_callforwardingnotreachable+mo%2Fdelete_calllogs+mo%2Fdelete_missed+mo%2Fdelete_placed+mo%2Fdelete_received+mo%2Fput_callinglineiddeliveryblocking+mo%2Fput_simultaneousringpersonal+mo%2Fput_sequentialring+mo%2Fpost_callthrough&ln=en");
 		else
-			web.loadUrl("https://api.mobicom.mn/oauth/authorization/auth?client_id=f5dew6eilfL3WJFi&redirect_uri=com.mobinet.mnp75://oauth&response_type=code&scope=voip%2Fsip+connect%2Fvoip+voip%2Fuserinfo+voip%2Fcallforward%2Fcheck+voip%2Fcallforward%2Foff+voip%2Fcallforward%2Fon+voip%2Fsms%2Fsend+voip%2Fgetallmessage+voip%2Fdeletemessage+voip%2Flinkednumber+mo%2Fget_sip+mo%2Fget_profile+mo%2Fget_broadworksmobility+mo%2Fget_callforwardingalways+mo%2Fget_callforwardingbusy+mo%2Fget_callforwardingnoanswer+mo%2Fget_callforwardingnotreachable+mo%2Fget_calllogs+mo%2Fget_missed+mo%2Fget_placed+mo%2Fget_received+mo%2Fget_group+mo%2Fget_callinglineiddeliveryblocking+mo%2Fget_simultaneousringpersonal+mo%2Fget_sequentialring+mo%2Fput_broadworksmobility+mo%2Fput_callforwardingalways+mo%2Fput_callforwardingbusy+mo%2Fput_callforwardingnoanswer+mo%2Fput_callforwardingnotreachable+mo%2Fdelete_calllogs+mo%2Fdelete_missed+mo%2Fdelete_placed+mo%2Fdelete_received+mo%2Fput_callinglineiddeliveryblocking+mo%2Fput_simultaneousringpersonal+mo%2Fput_sequentialring+mo%2Fpost_callthrough");
+			web.loadUrl("https://api.mobicom.mn/oauth/authorization/auth?client_id=f5dew6eilfL3WJFi&redirect_uri=com.mobinet.mnp75://oauth&response_type=code&scope=voip%2Fsip+connect%2Fvoip+voip%2Fuserinfo+voip%2Fcallforward%2Fcheck+voip%2Fcallforward%2Foff+voip%2Fcallforward%2Fon+voip%2Fsms%2Fsend+voip%2Fgetallmessage+voip%2Fdeletemessage+voip%2Flinkednumber+mo%2Fget_sip+mo%2Fget_profile+mo%2Fget_broadworksmobility+mo%2Fget_callforwardingalways+mo%2Fget_callforwardingbusy+mo%2Fget_callforwardingnoanswer+mo%2Fget_callforwardingnotreachable+mo%2Fget_calllogs+mo%2Fget_missed+mo%2Fget_placed+mo%2Fget_received+mo%2Fget_group+mo%2Fget_callinglineiddeliveryblocking+mo%2Fget_simultaneousringpersonal+mo%2Fget_sequentialring+mo%2Fput_broadworksmobility+mo%2Fput_callforwardingalways+mo%2Fput_callforwardingbusy+mo%2Fput_callforwardingnoanswer+mo%2Fput_callforwardingnotreachable+mo%2Fdelete_calllogs+mo%2Fdelete_missed+mo%2Fdelete_placed+mo%2Fdelete_received+mo%2Fput_callinglineiddeliveryblocking+mo%2Fput_simultaneousringpersonal+mo%2Fput_sequentialring+mo%2Fpost_callthrough&ln=mn");
 	}
 
 	protected void onServiceReady() {
@@ -295,6 +307,8 @@ public class LinphoneLauncherActivity extends Activity {
 	}
 
 	public static String STATE = "";
+	public static Date STATEDATE = new Date(0);
+	public static Date SIPDATE = new Date(0);
 	private class OAuthClientTask extends AsyncTask<String, Void, String> {
 
 		@Override
@@ -322,108 +336,119 @@ public class LinphoneLauncherActivity extends Activity {
 
 	public void connectToSip(){
 		UserControl.userType = UserControl.SipUserType.MNP75;
-		OauthRequest requestUserInfo = new OauthRequest(UserControl.getMNP75UserInfo(),
-				OauthRequest.RequestType.GET);
-		requestUserInfo.setOauthListener(new OauthRequest.OauthListener() {
+		if (Calendar.getInstance().getTime().getTime() - STATEDATE.getTime() > 10000) {
+			OauthRequest requestUserInfo = new OauthRequest(UserControl.getMNP75UserInfo(),
+					OauthRequest.RequestType.GET);
+			requestUserInfo.setOauthListener(new OauthRequest.OauthListener() {
 
-			@Override
-			public void onResult(String result) {
-				// TODO Auto-generated method stub
-				JSONObject object;
-				try {
-					object = new JSONObject(result);
-					if (object.getInt("code") == 0) {
-						STATE = object.getString("state");
-					}
-				}
-				catch (Exception e){
-					e.printStackTrace();
-				}
-
-				Log.d("CALLER_ID_BLOCK", result);
-
-			}
-
-			@Override
-			public void onBackgroundException(Exception e) {
-				// TODO Auto-generated method stub
-			}
-
-			@Override
-			public void onResultCodeWrong(String code) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void onErrorDialogOkClick() {
-				// TODO Auto-generated method stub
-			}
-		}, "", LinphoneLauncherActivity.this);
-		requestUserInfo.execute();
-		setContentView(R.layout.launcher);
-		OauthRequest request = new OauthRequest(UserControl.getSipURL(),
-				UserControl.getSipTYPE());
-		request.setOauthListener(new OauthRequest.OauthListener() {
-
-			@Override
-			public void onResult(String result) {
-				// TODO Auto-generated method stub
-
-				Log.d("SIP", result);
-				Gson gson = new Gson();
-
-				VoipSipModel sip = gson
-						.fromJson(result, VoipSipModel.class);
-
-				try {
-					Log.d(TAG, sip.info);
-					String tmp = Encryption.decrypt(sip.info);
-					android.util.Log
-							.v(TAG, "info: " + tmp);
-					String tmplist[] = tmp.split(":");
-					android.util.Log.v(TAG, tmplist[0]+ "+" + tmplist[1]);
-					sipNumber = tmplist[0];
-					sipPass = tmplist[1];
-
-					mHandler = new Handler();
-
-
-
-					if (LinphoneService.isReady()) {
-						onServiceReady();
-					} else {
-						// start linphone as background
-						startService(new Intent(ACTION_MAIN).setClass(LinphoneLauncherActivity.this, LinphoneService.class));
-						mServiceThread = new ServiceWaitThread();
-						mServiceThread.start();
+				@Override
+				public void onResult(String result) {
+					// TODO Auto-generated method stub
+					JSONObject object;
+					try {
+						object = new JSONObject(result);
+						if (object.getInt("code") == 0) {
+							STATE = object.getString("state");
+							STATEDATE = Calendar.getInstance().getTime();
+						}
+					} catch (Exception e) {
+						e.printStackTrace();
 					}
 
-					// LinphoneActivity.instance().logIn("75752085",
-					// "Pass123456" , "ip-phone.mobinet.mn", false);
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					Log.d("CALLER_ID_BLOCK", result);
+
 				}
-			}
 
-			@Override
-			public void onBackgroundException(Exception e) {
-				// TODO Auto-generated method stub
-			}
+				@Override
+				public void onBackgroundException(Exception e) {
+					// TODO Auto-generated method stub
+				}
 
-			@Override
-			public void onResultCodeWrong(String code) {
-				// TODO Auto-generated method stub
-			}
+				@Override
+				public void onResultCodeWrong(String code) {
+					// TODO Auto-generated method stub
 
-			@Override
-			public void onErrorDialogOkClick() {
-				// TODO Auto-generated method stub
+				}
+
+				@Override
+				public void onErrorDialogOkClick() {
+					// TODO Auto-generated method stub
+				}
+			}, "", LinphoneLauncherActivity.this);
+			requestUserInfo.execute();
+		}
+		if (Calendar.getInstance().getTime().getTime() - SIPDATE.getTime() > 10000) {
+			setContentView(R.layout.launcher);
+			OauthRequest request = new OauthRequest(UserControl.getSipURL(),
+					UserControl.getSipTYPE());
+			request.setOauthListener(new OauthRequest.OauthListener() {
+
+				@Override
+				public void onResult(String result) {
+					// TODO Auto-generated method stub
+
+					Log.d("SIP", result);
+					Gson gson = new Gson();
+
+					VoipSipModel sip = gson
+							.fromJson(result, VoipSipModel.class);
+
+					try {
+						Log.d(TAG, sip.info);
+						String tmp = Encryption.decrypt(sip.info);
+						android.util.Log
+								.v(TAG, "info: " + tmp);
+						String tmplist[] = tmp.split(":");
+						android.util.Log.v(TAG, tmplist[0] + "+" + tmplist[1]);
+						sipNumber = tmplist[0];
+						sipPass = tmplist[1];
+						SIPDATE = Calendar.getInstance().getTime();
+						mHandler = new Handler();
+
+
+						if (LinphoneService.isReady()) {
+							onServiceReady();
+						} else {
+							// start linphone as background
+							startService(new Intent(ACTION_MAIN).setClass(LinphoneLauncherActivity.this, LinphoneService.class));
+							mServiceThread = new ServiceWaitThread();
+							mServiceThread.start();
+						}
+
+						// LinphoneActivity.instance().logIn("75752085",
+						// "Pass123456" , "ip-phone.mobinet.mn", false);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+
+				@Override
+				public void onBackgroundException(Exception e) {
+					// TODO Auto-generated method stub
+				}
+
+				@Override
+				public void onResultCodeWrong(String code) {
+					// TODO Auto-generated method stub
+				}
+
+				@Override
+				public void onErrorDialogOkClick() {
+					// TODO Auto-generated method stub
 //				initScreen();
+				}
+			}, "", LinphoneLauncherActivity.this);
+			request.execute();
+		} else {
+			if (LinphoneService.isReady()) {
+				onServiceReady();
+			} else {
+				// start linphone as background
+				startService(new Intent(ACTION_MAIN).setClass(LinphoneLauncherActivity.this, LinphoneService.class));
+				mServiceThread = new ServiceWaitThread();
+				mServiceThread.start();
 			}
-		}, "", LinphoneLauncherActivity.this);
-		request.execute();
-
+		}
 	}
 }

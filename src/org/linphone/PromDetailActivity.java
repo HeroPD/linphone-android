@@ -8,6 +8,7 @@ import java.util.List;
 import cz.msebera.android.httpclient.HttpResponse;
 import cz.msebera.android.httpclient.client.HttpClient;
 import cz.msebera.android.httpclient.client.methods.HttpGet;
+import cz.msebera.android.httpclient.client.methods.HttpPost;
 import cz.msebera.android.httpclient.impl.client.DefaultHttpClient;
 import cz.msebera.android.httpclient.protocol.HTTP;
 import mn.mobicom.classes.CircleFragmentAdapter;
@@ -78,8 +79,8 @@ public class PromDetailActivity  extends FragmentActivity{
 
 				// ------------------>>
 
-				HttpGet httppost = new HttpGet(
-						"http://staticcss.mobicom.mn/promlist.json");
+				HttpPost httppost = new HttpPost(
+						"https://z-shop.mobicom.mn/MBA/v1/getMNP75Promotion");
 				HttpClient httpclient = new DefaultHttpClient();
 				HttpResponse response = httpclient
 						.execute(httppost);
@@ -123,10 +124,10 @@ public class PromDetailActivity  extends FragmentActivity{
 				Gson gson = new Gson();
 
 				PromData dt = gson.fromJson(result, PromData.class);
-				promotionList = dt.Promotions;
+				promotionList = dt.promotions;
 
 				mAdapter = new CircleFragmentAdapter(
-						getSupportFragmentManager(), promotionList);
+						getSupportFragmentManager(), PromDetailActivity.this, promotionList);
 				mPager.setAdapter(mAdapter);
 				mIndicator.setViewPager(mPager);
 			}

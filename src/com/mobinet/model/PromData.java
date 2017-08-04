@@ -2,17 +2,23 @@ package com.mobinet.model;
 
 import java.util.List;
 
-public class PromData extends BaseModel{
-	
-	public List<data> Promotions;
+public class PromData{
+
+	public int result_code;
+	public String message_mn;
+	public String message_en;
+	public List<data> promotions;
+	public String hash;
+	public String type;
+	public int count;
 	
 	public class data{
 		public int Id ;
-		public Boolean IsCorp;
-		public String Title ;
-		public String Picture;
-		public String Date;
-		public String Text;
+		public String title_mn;
+		public String title_en;
+		public String picture;
+		public String description_mn;
+		public String description_en;
 	}
 	
 }

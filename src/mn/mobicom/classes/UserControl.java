@@ -1,5 +1,15 @@
 package mn.mobicom.classes;
 
+import android.content.Context;
+import android.net.http.SslError;
+import android.util.Log;
+import android.webkit.SslErrorHandler;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+
+import java.util.HashMap;
+
 import mn.mobicom.oauth2.OauthRequest.RequestType;
 
 public class UserControl {
@@ -160,4 +170,54 @@ public class UserControl {
 	public static String getConnect() {
 		return mainURL + "connect/v1/voip";
 	}
+
+    public interface LogoutAction {
+        void loggedOut();
+    }
+	public static void logoutURL(WebView webView, final LogoutAction logoutAction) {
+        WebSettings settings = webView.getSettings();
+        settings.setJavaScriptEnabled(true);
+        settings.setDomStorageEnabled(true);
+        settings.setDefaultTextEncodingName("utf-8");
+        settings.setUserAgentString("Android");
+        webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                Log.d("URL", "shouldOverrideUrlLoading " + url);
+                if (url.startsWith("com.mobinet.mnp75")) {
+                    String[] urls1 = url.split("\\?");
+                    String[] urls2 = urls1[1].split("&");
+                    HashMap<String, String> parametr = new HashMap<String, String>();
+                    for (String pr : urls2) {
+                        String get[] = pr.split("=");
+                        parametr.put(get[0], get[1]);
+                    }
+                    if (parametr.containsKey("logout")) {
+                        if (logoutAction != null) {
+                            logoutAction.loggedOut();
+                        }
+                    }
+                } else {
+                    view.loadUrl(url);
+                }
+                return true;
+            }
+
+            @Override
+            public void onReceivedSslError(WebView view,
+                                           SslErrorHandler handler, SslError error) {
+                // super.onReceivedSslError(view, handler, error);
+                handler.proceed();
+            }
+
+            @Override
+            public void onReceivedError(WebView view, int errorCode,
+                                        String description, String failingUrl) {
+                // Log.i(TAG, "error code: " + errorCode);
+                // Log.i(TAG, "description: " + description);
+                // Log.i(TAG, "failingUrl: " + failingUrl);
+            }
+        });
+        webView.loadUrl("https://api.mobicom.mn/oauth/authorization/logout?client_id=f5dew6eilfL3WJFi&redirect_uri=com.mobinet.mnp75://oauth?logout=true");
+    }
 }
