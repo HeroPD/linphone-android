@@ -253,6 +253,7 @@
     <string name="error_user_not_found">User not found</string>
     <string name="error_incompatible_media">Incompatible media parameters</string>
     <string name="temporary_unavailable">The number you have called is not reachable</string>
+    <string name="payment_required">Error occurred, Please recharge your balance.</string>
     <string name="error_low_bandwidth">Your caller has low bandwidth, video cannot be started</string>
     <string name="error_network_unreachable">Network is unreachable</string>
     <string name="error_bad_credentials">Bad credentials</string>
@@ -571,11 +572,11 @@
     <string name="mnp_yesterday">yesterday</string>
     <string name="mnp_today">today</string>
     <string name="mnp_password">Password</string>
-    <string name="mnp_connect_title">Please enter Mobifone number in order to continue</string>
+    <string name="mnp_connect_title">Please enter MNP75 number in order to continue</string>
     <string name="error">Error</string>
     <string name="connectionerror">Connection error has occurred</string>
     <string name="mnp_disconnect_warning_header">Warning</string>
-    <string name="mnp_disconnect_warning">Please be aware that your Mobifone number will not associated with your account anymore and you will be logged out. Do you want to proceed?</string>
+    <string name="mnp_disconnect_warning">Please be aware that your MNP75 number will not associated with your account anymore and you will be logged out. Do you want to proceed?</string>
     <string name="mnp_no">No</string>
     <string name="mnp_yes">Yes</string>
     <string name="mnp_warning_expire14">Your outgoing call service has been suspended. Please recharge your balance.</string>
@@ -586,4 +587,6 @@
     <string name="mnp_send">SEND</string>
     <string name="mnp_write_new">Write new</string>
     <string name="no_message">No message</string>
+    <string name="mnp_back">Back</string>
+    <string name="mnp_invalid_user">You have disconnected your MNP75 number. Please login and re-connect your MNP75 number again.</string>
 </resources>

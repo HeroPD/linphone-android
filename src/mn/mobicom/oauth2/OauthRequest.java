@@ -9,17 +9,22 @@ import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 
 import me.drakeet.materialdialog.MaterialDialog;
+import mn.mobicom.classes.UserControl;
 
 import org.json.JSONObject;
 import org.linphone.R;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.util.Log;
 import android.view.View;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
 
 public class OauthRequest extends AsyncTask<String, Void, String> {
 
@@ -149,6 +154,40 @@ public class OauthRequest extends AsyncTask<String, Void, String> {
 						RefreshTokenTask task = new RefreshTokenTask(this);
 						task.execute();
 
+					} else if (model.getString("error").equals("invalid_user")) {
+						final MaterialDialog mMaterialDialog = new MaterialDialog(
+								context);
+						mMaterialDialog
+								.setMessage(context.getResources().getString(R.string.mnp_invalid_user))
+								.setPositiveButton("OK",
+										new View.OnClickListener() {
+											@Override
+											public void onClick(View v) {
+												UserControl.userType = UserControl.SipUserType.DEFAULT;
+												if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+													// Log.d(C.TAG, "Using ClearCookies code for API >=" +
+															// String.valueOf(Build.VERSION_CODES.LOLLIPOP_MR1));
+																	CookieManager.getInstance().removeAllCookies(null);
+													CookieManager.getInstance().flush();
+												} else {
+													// Log.d(C.TAG, "Using ClearCookies code for API <" +
+															// String.valueOf(Build.VERSION_CODES.LOLLIPOP_MR1));
+													CookieSyncManager cookieSyncMngr = CookieSyncManager.createInstance(context);
+													cookieSyncMngr.startSync();
+													CookieManager cookieManager = CookieManager.getInstance();
+													cookieManager.removeAllCookie();
+													cookieManager.removeSessionCookie();
+													cookieSyncMngr.stopSync();
+													cookieSyncMngr.sync();
+												}
+												Intent broadcastintent = new Intent();
+												broadcastintent.setAction("com.package.ACTION_LOGOUT");
+												context.sendBroadcast(broadcastintent);
+												context.finish();
+											}
+										});
+
+						mMaterialDialog.show();
 					} else {
 						final OauthListener listenerLocal = listener;
 						

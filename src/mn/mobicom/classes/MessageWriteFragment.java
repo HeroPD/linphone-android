@@ -265,13 +265,13 @@ public class MessageWriteFragment extends Fragment {
 				@Override
 				public void onResultCodeWrong(String code) {
 					// TODO Auto-generated method stub
-					progress.hide();
+					progress.dismiss();
 				}
 
 				@Override
 				public void onResult(String result) {
 					// TODO Auto-generated method stub
-					progress.hide();
+					progress.dismiss();
 					Log.d("LOGRESULT", result);
 					data.remove(info.position);
 					getActivity().runOnUiThread(new Runnable() {
@@ -288,14 +288,14 @@ public class MessageWriteFragment extends Fragment {
 				@Override
 				public void onErrorDialogOkClick() {
 					// TODO Auto-generated method stub
-					progress.hide();
+					progress.dismiss();
 
 				}
 
 				@Override
 				public void onBackgroundException(Exception e) {
 					// TODO Auto-generated method stub
-					progress.hide();
+					progress.dismiss();
 
 				}
 			}, "", getActivity());

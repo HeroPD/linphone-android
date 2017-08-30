@@ -5,6 +5,7 @@
     <string name="error_user_busy">Хэрэглэгч завгүй байна</string>
     <string name="error_user_not_found">Хэрэглэгч олдсонгүй</string>
     <string name="temporary_unavailable">Таны залгасан дугаар холбогдох боломжгүй байна.</string>
+    <string name="payment_required">Алдаа гарлаа, Та дансаа цэнэглэнэ үү.</string>
 
     <string name="no_contact">Хадгалсан дугаар байхгүй байна.</string>
     <string name="status_connected">Холбогдсон</string>
@@ -99,11 +100,11 @@
     <string name="mnp_yesterday">өчигдөр</string>
     <string name="mnp_today">өнөөдөр</string>
     <string name="mnp_password">Нууц үг</string>
-    <string name="mnp_connect_title">Mobifone - ын дугаар оруулна уу</string>
+    <string name="mnp_connect_title">MNP75 - ын дугаар оруулна уу</string>
     <string name="error">Алдаа</string>
     <string name="connectionerror">Сервертэй холбогдоход алдаа гарлаа</string>
     <string name="mnp_disconnect_warning_header">Анхааруулга</string>
-    <string name="mnp_disconnect_warning">Та Mobifone дугаарын холболт салгахыг хүсч байна уу? Холболт салснаар апликейшнээс гарах ба дахин холболт хийснээр апликейшыг ашиглах боломжтой болно </string>
+    <string name="mnp_disconnect_warning">Та MNP75 дугаарын холболт салгахыг хүсч байна уу? Холболт салснаар апликейшнээс гарах ба дахин холболт хийснээр апликейшыг ашиглах боломжтой болно </string>
     <string name="mnp_no">Үгүй</string>
     <string name="mnp_yes">Тийм</string>
     <string name="mnp_warning_expire14">Таны гарах яриа хаагдсан байна. Та хоногтой картаар дансаа цэнэглэнэ үү.</string>
@@ -114,5 +115,7 @@
     <string name="mnp_send">ИЛГЭЭХ</string>
     <string name="mnp_write_new">Мэссэж</string>
     <string name="no_message">Мессэж олдсонгүй.</string>
+    <string name="mnp_back">Буцах</string>
+    <string name="mnp_invalid_user">Та MNP75 дугаараа салгасан байна. Та дахин нэвтэрч дугаараа холбоно уу?</string>
 
 </resources>

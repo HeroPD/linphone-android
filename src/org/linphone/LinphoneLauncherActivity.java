@@ -142,7 +142,7 @@ public class LinphoneLauncherActivity extends Activity {
 		WebSettings settings = web.getSettings();
 		settings.setJavaScriptEnabled(true);
 		settings.setDefaultTextEncodingName("utf-8");
-		settings.setUserAgentString("Android");
+		settings.setUserAgentString("User-Agent\tMozilla/5.0 (iPhone; CPU iPhone OS 10_0 like Mac OS X) AppleWebKit/602.1.38 (KHTML, like Gecko) Version/10.0 Mobile/14A300 Safari/602.1");
 		web.setWebViewClient(new WebViewClient() {
 			@Override
 			public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -377,7 +377,7 @@ public class LinphoneLauncherActivity extends Activity {
 			}, "", LinphoneLauncherActivity.this);
 			requestUserInfo.execute();
 		}
-		if (Calendar.getInstance().getTime().getTime() - SIPDATE.getTime() > 10000) {
+//		if (Calendar.getInstance().getTime().getTime() - SIPDATE.getTime() > 10000) {
 			setContentView(R.layout.launcher);
 			OauthRequest request = new OauthRequest(UserControl.getSipURL(),
 					UserControl.getSipTYPE());
@@ -440,15 +440,15 @@ public class LinphoneLauncherActivity extends Activity {
 				}
 			}, "", LinphoneLauncherActivity.this);
 			request.execute();
-		} else {
-			if (LinphoneService.isReady()) {
-				onServiceReady();
-			} else {
-				// start linphone as background
-				startService(new Intent(ACTION_MAIN).setClass(LinphoneLauncherActivity.this, LinphoneService.class));
-				mServiceThread = new ServiceWaitThread();
-				mServiceThread.start();
-			}
-		}
+//		} else {
+//			if (LinphoneService.isReady()) {
+//				onServiceReady();
+//			} else {
+//				// start linphone as background
+//				startService(new Intent(ACTION_MAIN).setClass(LinphoneLauncherActivity.this, LinphoneService.class));
+//				mServiceThread = new ServiceWaitThread();
+//				mServiceThread.start();
+//			}
+//		}
 	}
 }

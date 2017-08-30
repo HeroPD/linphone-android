@@ -17,7 +17,7 @@
             android:drawableLeft="@drawable/bot_back_arrow"
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
-            android:text="@string/mnp_connect"
+            android:text="@string/mnp_back"
             android:textColor="@android:color/white"
             android:textSize="@dimen/app_text_action_back" />
 
@@ -33,8 +33,25 @@
             android:text="@string/mnp_connect"
             android:textColor="@android:color/white"
             android:textSize="@dimen/app_text_action_back" />
-    </RelativeLayout>
 
+        <com.rey.material.widget.Button
+            android:id="@+id/logout_button"
+            style="@style/FlatButtonRippleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="@string/mnp_logout"
+            android:visibility="gone"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/app_text_action_back" />
+
+    </RelativeLayout>
+    <WebView
+        android:id="@+id/webView"
+        android:layout_height="0dp"
+        android:layout_width="match_parent"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

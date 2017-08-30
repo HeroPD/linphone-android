@@ -126,7 +126,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:gravity="center_vertical"
-                    android:text="2017-07-17"
+                    android:text="2017-08-08"
                     android:textColor="@color/app_main_text" />
 
                 <TextView

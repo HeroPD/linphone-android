@@ -10,16 +10,20 @@ import org.linphone.ui.Progress;
 
 import com.rey.material.widget.Button;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.EditText;
 
 public class ConnectActivity extends FragmentActivity {
 	
 	private Button backButton;
 	private Button connectButton;
+	private Button logoutButton;
+    private WebView webView;
 	private EditText phonenumber;
 	private EditText password;
 	protected Progress progress;
@@ -36,7 +40,15 @@ public class ConnectActivity extends FragmentActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				onBackPressed();
+                UserControl.logoutURL(webView, new UserControl.LogoutAction() {
+                    @Override
+                    public void loggedOut() {
+                        Intent broadcastintent = new Intent();
+                        broadcastintent.setAction("com.package.ACTION_LOGOUT");
+                        ConnectActivity.this.sendBroadcast(broadcastintent);
+                        ConnectActivity.this.finish();
+                    }
+                });
 			}
 		});
 		connectButton = (Button) findViewById(R.id.connect_button);
@@ -47,9 +59,40 @@ public class ConnectActivity extends FragmentActivity {
 				connect();
 			}
 		});
+		logoutButton = (Button) findViewById(R.id.logout_button);
+		logoutButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+                UserControl.logoutURL(webView, new UserControl.LogoutAction() {
+                    @Override
+                    public void loggedOut() {
+                        Intent broadcastintent = new Intent();
+                        broadcastintent.setAction("com.package.ACTION_LOGOUT");
+                        ConnectActivity.this.sendBroadcast(broadcastintent);
+                        ConnectActivity.this.finish();
+                    }
+                });
+			}
+		});
+        webView = (WebView)findViewById(R.id.webView);
 	}
-	
-	private void connect(){
+
+    @Override
+    public void onBackPressed() {
+        progress.show();
+        UserControl.logoutURL(webView, new UserControl.LogoutAction() {
+            @Override
+            public void loggedOut() {
+                progress.dismiss();
+                Intent broadcastintent = new Intent();
+                broadcastintent.setAction("com.package.ACTION_LOGOUT");
+                ConnectActivity.this.sendBroadcast(broadcastintent);
+                ConnectActivity.this.finish();
+            }
+        });
+    }
+
+    private void connect(){
 		progress.show();
 		String body = "{\"voipnumber\":\""+phonenumber.getText().toString()+"\",\"password\":\""+password.getText().toString()+"\"}";
 		OauthRequest request = new OauthRequest(UserControl.getConnect(),RequestType.POST

@@ -213,9 +213,11 @@ public class OtherFragment extends Fragment {
 						mMaterialDialog.show();
 						break;
 					case 5:
+						progress.show();
 						UserControl.logoutURL(webView, new UserControl.LogoutAction() {
 							@Override
 							public void loggedOut() {
+								progress.dismiss();
 								Intent broadcastintent = new Intent();
 								broadcastintent.setAction("com.package.ACTION_LOGOUT");
 								getActivity().sendBroadcast(broadcastintent);
