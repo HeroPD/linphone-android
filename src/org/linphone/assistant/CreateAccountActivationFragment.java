@@ -27,9 +27,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.linphone.LinphoneManager;
-import org.linphone.LinphonePreferences;
-import org.linphone.R;
+import mn.mobinet.mnp75.LinphoneManager;
+import mn.mobinet.mnp75.LinphonePreferences;
+import mn.mobinet.mnp75.R;
 import org.linphone.core.LinphoneAccountCreator;
 import org.linphone.core.LinphoneAccountCreator.LinphoneAccountCreatorListener;
 import org.linphone.core.LinphoneCoreFactory;

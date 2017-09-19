@@ -2,9 +2,9 @@ package org.linphone.test;
 
 import junit.framework.Assert;
 
-import org.linphone.LinphoneActivity;
-import org.linphone.LinphoneManager;
-import org.linphone.LinphonePreferences;
+import mn.mobinet.mnp75.LinphoneActivity;
+import mn.mobinet.mnp75.LinphoneManager;
+import mn.mobinet.mnp75.LinphonePreferences;
 import org.linphone.assistant.AssistantActivity;
 import org.linphone.core.LinphoneProxyConfig;
 import org.linphone.mediastream.video.capture.hwconf.Hacks;
@@ -13,7 +13,6 @@ import android.test.suitebuilder.annotation.LargeTest;
 import android.test.suitebuilder.annotation.MediumTest;
 import android.test.suitebuilder.annotation.SmallTest;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Button;
 

@@ -20,10 +20,10 @@ package org.linphone.ui;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.linphone.LinphoneLauncherActivity;
-import org.linphone.LinphoneManager;
-import org.linphone.LinphonePreferences;
-import org.linphone.R;
+import mn.mobinet.mnp75.LinphoneLauncherActivity;
+import mn.mobinet.mnp75.LinphoneManager;
+import mn.mobinet.mnp75.LinphonePreferences;
+import mn.mobinet.mnp75.R;
 import org.linphone.core.CallDirection;
 import org.linphone.core.LinphoneCallLog;
 import org.linphone.core.LinphoneCoreException;
@@ -40,12 +40,10 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.rey.material.widget.ImageButton;
 
-import me.drakeet.materialdialog.MaterialDialog;
 import mn.mobicom.classes.CheckState;
 import mn.mobicom.classes.UserControl;
 import mn.mobicom.oauth2.OauthRequest;

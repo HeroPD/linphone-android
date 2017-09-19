@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.linphone.R;
+import mn.mobinet.mnp75.R;
 import org.linphone.core.LinphoneAddress;
 
 import android.annotation.TargetApi;

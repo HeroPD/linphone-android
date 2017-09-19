@@ -1,8 +1,8 @@
 package org.linphone.ui;
 
-import org.linphone.LinphoneActivity;
-import org.linphone.LinphoneManager;
-import org.linphone.LinphoneService;
+import mn.mobinet.mnp75.LinphoneActivity;
+import mn.mobinet.mnp75.LinphoneManager;
+import mn.mobinet.mnp75.LinphoneService;
 import org.linphone.core.LinphoneCall;
 import org.linphone.core.LinphoneCallParams;
 import org.linphone.mediastream.video.AndroidVideoWindowImpl;

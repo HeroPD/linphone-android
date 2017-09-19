@@ -6,17 +6,12 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
-import me.drakeet.materialdialog.MaterialDialog;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.linphone.LinphoneActivity;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
-import android.view.View;
 
 public class OAuthClient {
 

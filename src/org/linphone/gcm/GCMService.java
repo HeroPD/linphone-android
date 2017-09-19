@@ -20,11 +20,11 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 import static android.content.Intent.ACTION_MAIN;
 
-import org.linphone.LinphoneManager;
-import org.linphone.LinphonePreferences;
-import org.linphone.LinphoneService;
-import org.linphone.R;
-import org.linphone.UIThreadDispatcher;
+import mn.mobinet.mnp75.LinphoneManager;
+import mn.mobinet.mnp75.LinphonePreferences;
+import mn.mobinet.mnp75.LinphoneService;
+import mn.mobinet.mnp75.R;
+import mn.mobinet.mnp75.UIThreadDispatcher;
 import org.linphone.core.LinphoneCoreFactory;
 import org.linphone.mediastream.Log;
 

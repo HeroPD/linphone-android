@@ -4,24 +4,19 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import org.linphone.LinphoneLauncherActivity;
-import org.linphone.PromDetailActivity;
-import org.linphone.R;
+import mn.mobinet.mnp75.LinphoneLauncherActivity;
 
-import android.content.Intent;
+import mn.mobinet.mnp75.R;
+
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.media.Image;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
 public final class TestFragment extends Fragment {

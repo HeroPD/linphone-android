@@ -16,7 +16,7 @@
 
 package io.karim;
 
-import org.linphone.R;
+import mn.mobinet.mnp75.R;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;

@@ -12,7 +12,7 @@ import me.drakeet.materialdialog.MaterialDialog;
 import mn.mobicom.classes.UserControl;
 
 import org.json.JSONObject;
-import org.linphone.R;
+import mn.mobinet.mnp75.R;
 
 import android.app.Activity;
 import android.content.Context;

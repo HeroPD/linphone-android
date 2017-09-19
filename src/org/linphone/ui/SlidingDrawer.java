@@ -18,7 +18,7 @@ package org.linphone.ui;
  * Modifications by: Sylvain Berfini
  */
 
-import org.linphone.R;
+import mn.mobinet.mnp75.R;
 
 import android.content.Context;
 import android.content.res.TypedArray;

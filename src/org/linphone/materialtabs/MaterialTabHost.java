@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
-import org.linphone.R;
+import mn.mobinet.mnp75.R;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

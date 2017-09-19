@@ -2,8 +2,8 @@ package org.linphone.test;
 
 import junit.framework.Assert;
 
-import org.linphone.CallActivity;
-import org.linphone.LinphoneActivity;
+import mn.mobinet.mnp75.CallActivity;
+import mn.mobinet.mnp75.LinphoneActivity;
 import org.linphone.core.LinphoneCall;
 
 import android.test.suitebuilder.annotation.LargeTest;

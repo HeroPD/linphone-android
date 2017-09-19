@@ -2,8 +2,8 @@ package mn.mobicom.classes;
 
 import java.util.List;
 
-import org.linphone.BaseFragment;
-import org.linphone.R;
+import mn.mobinet.mnp75.BaseFragment;
+import mn.mobinet.mnp75.R;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

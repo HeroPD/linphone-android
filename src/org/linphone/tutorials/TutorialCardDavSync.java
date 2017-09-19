@@ -4,8 +4,8 @@ import java.nio.ByteBuffer;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import org.linphone.R;
-import org.linphone.UIThreadDispatcher;
+import mn.mobinet.mnp75.R;
+import mn.mobinet.mnp75.UIThreadDispatcher;
 import org.linphone.core.LinphoneAddress;
 import org.linphone.core.LinphoneAuthInfo;
 import org.linphone.core.LinphoneCall;

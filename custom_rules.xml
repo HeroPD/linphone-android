@@ -65,7 +65,7 @@
 			<arg value="-a" />
 			<arg value="android.intent.action.MAIN" />
 			<arg value="-n" />
-			<arg value="${linphone.package.name}/org.linphone.LinphoneLauncherActivity" />
+			<arg value="${linphone.package.name}/mn.mobinet.mnp75.LinphoneLauncherActivity" />
 		</exec>
 	</target>
 

@@ -2,7 +2,7 @@ package org.linphone.test;
 
 import junit.framework.Assert;
 
-import org.linphone.LinphoneActivity;
+import mn.mobinet.mnp75.LinphoneActivity;
 import org.linphone.core.LinphoneChatMessage;
 import org.linphone.core.LinphoneChatMessage.State;
 import org.linphone.core.LinphoneChatRoom;
@@ -14,7 +14,6 @@ import android.test.suitebuilder.annotation.LargeTest;
 import android.test.suitebuilder.annotation.MediumTest;
 import android.test.suitebuilder.annotation.SmallTest;
 import android.widget.EditText;
-import android.widget.AutoCompleteTextView;
 
 
 /**

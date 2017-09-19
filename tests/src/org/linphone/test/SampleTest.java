@@ -1,7 +1,7 @@
 package org.linphone.test;
 
-import org.linphone.LinphoneLauncherActivity;
-import org.linphone.LinphoneManager;
+import mn.mobinet.mnp75.LinphoneLauncherActivity;
+import mn.mobinet.mnp75.LinphoneManager;
 import org.linphone.core.LinphoneCall;
 import org.linphone.core.LinphoneCall.State;
 import org.linphone.core.LinphoneCore;
@@ -11,7 +11,6 @@ import org.linphone.core.LinphoneCore.RegistrationState;
 import android.content.Context;
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.ListView;
-import java.util.List;
 
 import com.robotium.solo.Condition;
 import com.robotium.solo.Solo;

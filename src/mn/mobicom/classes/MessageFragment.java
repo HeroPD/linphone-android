@@ -12,11 +12,11 @@ import java.util.List;
 import mn.mobicom.oauth2.OauthRequest;
 import mn.mobicom.oauth2.OauthRequest.RequestType;
 
-import org.linphone.BaseFragment;
-import org.linphone.LinphoneContact;
-import org.linphone.MenuActivity;
-import org.linphone.MessageWriteActivity;
-import org.linphone.R;
+import mn.mobinet.mnp75.BaseFragment;
+import mn.mobinet.mnp75.LinphoneContact;
+import mn.mobinet.mnp75.MenuActivity;
+import mn.mobinet.mnp75.MessageWriteActivity;
+import mn.mobinet.mnp75.R;
 import org.linphone.ui.Progress;
 import org.linphone.ui.SwipyRefreshLayout;
 import org.linphone.ui.SwipyRefreshLayout.OnRefreshListener;

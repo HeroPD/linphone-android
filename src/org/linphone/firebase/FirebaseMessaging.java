@@ -25,9 +25,9 @@ import android.util.Log;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
-import org.linphone.LinphoneManager;
-import org.linphone.LinphoneService;
-import org.linphone.UIThreadDispatcher;
+import mn.mobinet.mnp75.LinphoneManager;
+import mn.mobinet.mnp75.LinphoneService;
+import mn.mobinet.mnp75.UIThreadDispatcher;
 import static android.content.Intent.ACTION_MAIN;
 
 /**

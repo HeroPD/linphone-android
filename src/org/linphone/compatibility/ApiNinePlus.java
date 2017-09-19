@@ -3,7 +3,7 @@ package org.linphone.compatibility;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.linphone.R;
+import mn.mobinet.mnp75.R;
 import org.linphone.core.LinphoneAddress;
 
 import android.annotation.TargetApi;

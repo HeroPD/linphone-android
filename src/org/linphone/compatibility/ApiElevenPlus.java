@@ -2,7 +2,7 @@ package org.linphone.compatibility;
 
 import java.util.ArrayList;
 
-import org.linphone.R;
+import mn.mobinet.mnp75.R;
 
 import android.annotation.TargetApi;
 import android.app.AlarmManager;

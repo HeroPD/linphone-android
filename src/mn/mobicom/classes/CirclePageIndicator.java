@@ -16,7 +16,7 @@
  */
 package mn.mobicom.classes;
 
-import org.linphone.R;
+import mn.mobinet.mnp75.R;
 
 import android.content.Context;
 import android.content.res.Resources;

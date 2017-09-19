@@ -10,11 +10,11 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 
-import org.linphone.CallLogDetailActivity;
-import org.linphone.LinphoneContact;
-import org.linphone.LinphoneManager;
-import org.linphone.LinphoneManager.AddressType;
-import org.linphone.R;
+import mn.mobinet.mnp75.CallLogDetailActivity;
+import mn.mobinet.mnp75.LinphoneContact;
+import mn.mobinet.mnp75.LinphoneManager;
+import mn.mobinet.mnp75.LinphoneManager.AddressType;
+import mn.mobinet.mnp75.R;
 import org.linphone.core.CallDirection;
 import org.linphone.core.LinphoneAddress;
 import org.linphone.core.LinphoneCallLog;

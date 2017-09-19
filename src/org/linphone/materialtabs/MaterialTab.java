@@ -2,7 +2,7 @@ package org.linphone.materialtabs;
 
 import java.util.Locale;
 
-import org.linphone.R;
+import mn.mobinet.mnp75.R;
 
 import android.animation.Animator;
 import android.annotation.SuppressLint;

@@ -203,12 +203,12 @@ public class UserControl {
                 return true;
             }
 
-            @Override
-            public void onReceivedSslError(WebView view,
-                                           SslErrorHandler handler, SslError error) {
-                // super.onReceivedSslError(view, handler, error);
-                handler.proceed();
-            }
+//            @Override
+//            public void onReceivedSslError(WebView view,
+//                                           SslErrorHandler handler, SslError error) {
+//                // super.onReceivedSslError(view, handler, error);
+//                handler.proceed();
+//            }
 
             @Override
             public void onReceivedError(WebView view, int errorCode,

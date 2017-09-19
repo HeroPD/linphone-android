@@ -1,13 +1,11 @@
 package org.linphone.test;
 
-import java.util.ArrayList;
-
 import junit.framework.Assert;
 
-import org.linphone.CallActivity;
-import org.linphone.CallIncomingActivity;
-import org.linphone.LinphoneActivity;
-import org.linphone.LinphoneManager;
+import mn.mobinet.mnp75.CallActivity;
+import mn.mobinet.mnp75.CallIncomingActivity;
+import mn.mobinet.mnp75.LinphoneActivity;
+import mn.mobinet.mnp75.LinphoneManager;
 import org.linphone.core.LinphoneCall;
 import org.linphone.core.LinphoneCoreException;
 import org.linphone.mediastream.Log;

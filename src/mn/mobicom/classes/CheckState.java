@@ -3,14 +3,9 @@ package mn.mobicom.classes;
 import android.content.Context;
 import android.view.View;
 
-import org.linphone.LinphoneLauncherActivity;
-import org.linphone.LinphoneManager;
-import org.linphone.LinphonePreferences;
-import org.linphone.R;
-import org.linphone.core.CallDirection;
-import org.linphone.core.LinphoneCallLog;
-import org.linphone.core.LinphoneCoreException;
-import org.linphone.core.LinphoneProxyConfig;
+import mn.mobinet.mnp75.LinphoneLauncherActivity;
+
+import mn.mobinet.mnp75.R;
 
 import me.drakeet.materialdialog.MaterialDialog;
 

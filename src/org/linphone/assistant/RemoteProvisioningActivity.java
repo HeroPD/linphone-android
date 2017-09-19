@@ -22,11 +22,11 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 
-import org.linphone.LinphoneLauncherActivity;
-import org.linphone.LinphoneManager;
-import org.linphone.LinphonePreferences;
-import org.linphone.LinphoneService;
-import org.linphone.R;
+import mn.mobinet.mnp75.LinphoneLauncherActivity;
+import mn.mobinet.mnp75.LinphoneManager;
+import mn.mobinet.mnp75.LinphonePreferences;
+import mn.mobinet.mnp75.LinphoneService;
+import mn.mobinet.mnp75.R;
 import org.linphone.core.LinphoneCore;
 import org.linphone.core.LinphoneCore.RemoteProvisioningState;
 import org.linphone.core.LinphoneCoreListenerBase;

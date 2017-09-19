@@ -2,15 +2,11 @@ package org.linphone.test;
 
 import junit.framework.Assert;
 
-import org.linphone.ContactsListFragment;
-import org.linphone.LinphoneActivity;
-import org.linphone.R;
+import mn.mobinet.mnp75.LinphoneActivity;
 
 import android.test.suitebuilder.annotation.LargeTest;
 import android.test.suitebuilder.annotation.MediumTest;
 import android.test.suitebuilder.annotation.SmallTest;
-import android.view.View;
-import android.widget.ScrollView;
 
 /**
  * @author Sylvain Berfini

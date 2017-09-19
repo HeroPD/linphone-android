@@ -24,8 +24,8 @@ import android.util.Log;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.FirebaseInstanceIdService;
 
-import org.linphone.LinphonePreferences;
-import org.linphone.UIThreadDispatcher;
+import mn.mobinet.mnp75.LinphonePreferences;
+import mn.mobinet.mnp75.UIThreadDispatcher;
 
 /**
  * @author Erwan Croze

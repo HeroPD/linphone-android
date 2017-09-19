@@ -21,8 +21,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 import java.util.ArrayList;
 import java.util.List;
 
-import org.linphone.LinphonePreferences;
-import org.linphone.R;
+import mn.mobinet.mnp75.LinphonePreferences;
+import mn.mobinet.mnp75.R;
 import org.linphone.mediastream.Log;
 import org.linphone.xmlrpc.XmlRpcHelper;
 import org.linphone.xmlrpc.XmlRpcListenerBase;

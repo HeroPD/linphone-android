@@ -2,7 +2,7 @@ package org.linphone.test;
 
 import static android.content.Intent.ACTION_MAIN;
 
-import org.linphone.LinphoneService;
+import mn.mobinet.mnp75.LinphoneService;
 
 import android.content.Intent;
 import android.test.suitebuilder.annotation.LargeTest;

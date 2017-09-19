@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="org.linphone"
+          package="mn.mobinet.mnp75"
           android:installLocation="auto"
-          android:versionCode="3253"
-          android:versionName="3.2.5">
+          android:versionCode="5"
+          android:versionName="1.0.1">
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -70,7 +70,7 @@
         android:label="@string/app_name"
         android:largeHeap="true">
         <activity
-            android:name=".LinphoneLauncherActivity"
+            android:name="mn.mobinet.mnp75.LinphoneLauncherActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
@@ -107,7 +107,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LinphoneActivity"
+            android:name="mn.mobinet.mnp75.LinphoneActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppBar" >
@@ -116,7 +116,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CallIncomingActivity"
+            android:name="mn.mobinet.mnp75.CallIncomingActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/AppBar" >
@@ -125,7 +125,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CallOutgoingActivity"
+            android:name="mn.mobinet.mnp75.CallOutgoingActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/AppBar" >
@@ -134,7 +134,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CallActivity"
+            android:name="mn.mobinet.mnp75.CallActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/AppBar" >
@@ -192,7 +192,7 @@
         </activity>
 
         <service
-            android:name=".LinphoneService"
+            android:name="mn.mobinet.mnp75.LinphoneService"
             android:label="@string/service_name"
             android:stopWithTask="false"/>
         <service
@@ -219,31 +219,31 @@
                 android:resource="@xml/authenticator"/>
         </service>
 
-        <receiver android:name=".NetworkManager">
+        <receiver android:name="mn.mobinet.mnp75.NetworkManager">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
             </intent-filter>
         </receiver>
         <receiver
-            android:name=".BluetoothManager"
+            android:name="mn.mobinet.mnp75.BluetoothManager"
             android:enabled="false">
         </receiver>
-        <receiver android:name=".BootReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.ACTION_SHUTDOWN"/>
-            </intent-filter>
-        </receiver>
-        <receiver android:name=".PhoneStateChangedReceiver">
+        <!--<receiver android:name="mn.mobinet.mnp75.BootReceiver">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.BOOT_COMPLETED"/>-->
+            <!--</intent-filter>-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.ACTION_SHUTDOWN"/>-->
+            <!--</intent-filter>-->
+        <!--</receiver>-->
+        <receiver android:name="mn.mobinet.mnp75.PhoneStateChangedReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.PHONE_STATE"/>
             </intent-filter>
         </receiver>
 
         <!-- This one needs to be registered from application -->
-        <receiver android:name=".KeepAliveReceiver"/>
+        <receiver android:name="mn.mobinet.mnp75.KeepAliveReceiver"/>
 
         <!-- Needed for push notification -->
         <!--<receiver
@@ -260,7 +260,7 @@
         <service android:name=".gcm.GCMService"/>-->
 
         <receiver
-            android:name=".AccountEnableReceiver"
+            android:name="mn.mobinet.mnp75.AccountEnableReceiver"
             android:permission="android.permission.CONFIGURE_SIP">
             <intent-filter>
                 <action android:name="org.linphone.intent.ACCOUNTACTIVATE"/>
@@ -322,118 +322,118 @@
                 <action android:name="android.intent.action.MAIN"/>
             </intent-filter>
         </activity>
-        <activity android:name=".LinphoneGenericActivity">
+        <activity android:name="mn.mobinet.mnp75.LinphoneGenericActivity">
         </activity>
         <activity
-            android:name="ContactActivity"
+            android:name="mn.mobinet.mnp75.ContactActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppBar" >
         </activity>
         <activity
-            android:name="MenuActivity"
+            android:name="mn.mobinet.mnp75.MenuActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppBar" >
         </activity>
         <activity
-            android:name="CallLogDetailActivity"
+            android:name="mn.mobinet.mnp75.CallLogDetailActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppBar" >
         </activity>
         <activity
-            android:name="MessageWriteActivity"
+            android:name="mn.mobinet.mnp75.MessageWriteActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppBar"
             android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
-            android:name="SettingsAcitivty"
+            android:name="mn.mobinet.mnp75.SettingsAcitivty"
             android:screenOrientation="portrait"
             android:theme="@style/AppBar" >
         </activity>
         <activity
-            android:name="AboutUsActivity"
+            android:name="mn.mobinet.mnp75.AboutUsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppBar" >
         </activity>
         <activity
-            android:name="SettingsCallerIDBlockingActivity"
+            android:name="mn.mobinet.mnp75.SettingsCallerIDBlockingActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppBar" >
         </activity>
         <activity
-            android:name="SettingsCFNoAnswerActivity"
+            android:name="mn.mobinet.mnp75.SettingsCFNoAnswerActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppBar" >
         </activity>
         <activity
-            android:name="SettingsCFAlwaysActivity"
+            android:name="mn.mobinet.mnp75.SettingsCFAlwaysActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppBar" >
         </activity>
         <activity
-            android:name="SettingsCFNotReachableAvtivity"
+            android:name="mn.mobinet.mnp75.SettingsCFNotReachableAvtivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppBar" >
         </activity>
         <activity
-            android:name="SettingsCFBusyActivity"
+            android:name="mn.mobinet.mnp75.SettingsCFBusyActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppBar" >
         </activity>
         <activity
-            android:name="SettingsMobilityActivity"
+            android:name="mn.mobinet.mnp75.SettingsMobilityActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppBar"
             android:windowSoftInputMode="stateAlwaysHidden" >
         </activity>
         <activity
-            android:name="SettingsSimultaneousActivity"
+            android:name="mn.mobinet.mnp75.SettingsSimultaneousActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppBar" >
         </activity>
         <activity
-            android:name="SettingsSimultaneousEditActivity"
+            android:name="mn.mobinet.mnp75.SettingsSimultaneousEditActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppBar" >
         </activity>
         <activity
-            android:name="SettingsSequantialActivity"
+            android:name="mn.mobinet.mnp75.SettingsSequantialActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppBar" >
         </activity>
         <activity
-            android:name="SettingsSequantialEditActivity"
+            android:name="mn.mobinet.mnp75.SettingsSequantialEditActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppBar" >
         </activity>
         <activity
-            android:name="SettingsCFVoipActivity"
+            android:name="mn.mobinet.mnp75.SettingsCFVoipActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppBar" >
         </activity>
         <activity
-            android:name="MNP75UserInfoActivity"
+            android:name="mn.mobinet.mnp75.MNP75UserInfoActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppBar" >
         </activity>
         <activity
-            android:name="SettingsCallThroughActivity"
+            android:name="mn.mobinet.mnp75.SettingsCallThroughActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppBar" >
         </activity>
         <activity
-            android:name="HelpActivity"
+            android:name="mn.mobinet.mnp75.HelpActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppBar">
         </activity>
         <activity
-            android:name="ConnectActivity"
+            android:name="mn.mobinet.mnp75.ConnectActivity"
             android:windowSoftInputMode="stateAlwaysVisible"
             android:screenOrientation="portrait"
             android:theme="@style/AppBar">
         </activity>
         <activity
-            android:name="PromDetailActivity"
+            android:name="mn.mobinet.mnp75.PromDetailActivity"
             android:windowSoftInputMode="stateHidden"
             android:screenOrientation="portrait"
             android:theme="@style/AppBar">

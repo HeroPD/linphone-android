@@ -22,10 +22,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.linphone.BaseFragment;
-import org.linphone.LinphoneActivity;
-import org.linphone.LinphoneManager;
-import org.linphone.R;
+import mn.mobinet.mnp75.BaseFragment;
+import mn.mobinet.mnp75.LinphoneActivity;
+import mn.mobinet.mnp75.LinphoneManager;
+import mn.mobinet.mnp75.R;
 import org.linphone.core.CallDirection;
 import org.linphone.core.LinphoneAddress;
 import org.linphone.core.LinphoneCallLog;
@@ -39,9 +39,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.Animation.AnimationListener;
-import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.AdapterView.OnItemClickListener;
@@ -293,7 +290,9 @@ public class HistorySimpleFragment extends BaseFragment implements
 		} else if (id == R.id.edit_button) {
 			showDeleteAllButton();
 			isEditMode = true;
-			adapter.isEditMode = true;
+			if (adapter != null) {
+				adapter.isEditMode = true;
+			}
 			Thread t = new Thread(new Runnable() {
 
 				@Override

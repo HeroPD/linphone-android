@@ -1,7 +1,7 @@
 package org.linphone.compatibility;
 
-import org.linphone.LinphonePreferences;
-import org.linphone.R;
+import mn.mobinet.mnp75.LinphonePreferences;
+import mn.mobinet.mnp75.R;
 import org.linphone.mediastream.Log;
 
 import android.annotation.TargetApi;

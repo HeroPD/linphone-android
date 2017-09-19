@@ -21,7 +21,7 @@ package org.linphone.ui;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import org.linphone.R;
+import mn.mobinet.mnp75.R;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -53,7 +53,7 @@ public class Numpad extends LinearLayout implements AddressAware {
 	public Numpad(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.Numpad);
-        mPlayDtmf = 1 == a.getInt(org.linphone.R.styleable.Numpad_play_dtmf, 1);
+        mPlayDtmf = 1 == a.getInt(mn.mobinet.mnp75.R.styleable.Numpad_play_dtmf, 1);
         a.recycle();
 		LayoutInflater.from(context).inflate(R.layout.numpad, this);
 		setLongClickable(true);

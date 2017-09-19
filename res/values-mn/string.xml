@@ -96,7 +96,7 @@
 	<string name="mnp_general">ЕРӨНХИЙ</string>
 	<string name="mnp_calling">Дуудлага</string>
 	<string name="mnp_call_center">Лавлах төв</string>
-    <string name="mnp_send_email">И-майл илгээх</string>
+    <string name="mnp_send_email">Цахим шуудан илгээх</string>
     <string name="mnp_yesterday">өчигдөр</string>
     <string name="mnp_today">өнөөдөр</string>
     <string name="mnp_password">Нууц үг</string>

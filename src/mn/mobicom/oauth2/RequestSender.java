@@ -17,8 +17,6 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
-import org.linphone.LinphoneActivity;
-
 import android.util.Log;
 
 /**

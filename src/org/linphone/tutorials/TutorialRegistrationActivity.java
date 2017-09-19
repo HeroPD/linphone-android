@@ -18,7 +18,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 package org.linphone.tutorials;
 
-import org.linphone.R;
+import mn.mobinet.mnp75.R;
 import org.linphone.core.LinphoneCoreException;
 import org.linphone.core.tutorials.TutorialNotifier;
 import org.linphone.core.tutorials.TutorialRegistration;

@@ -5,32 +5,26 @@ package mn.mobicom.classes;
 
 
 import me.drakeet.materialdialog.MaterialDialog;
-import org.linphone.ContactsManager;
-import org.linphone.LinphoneContact;
-import org.linphone.LinphoneManager;
-import org.linphone.LinphoneManager.AddressType;
-import org.linphone.LinphoneNumberOrAddress;
-import org.linphone.LinphoneUtils;
-import org.linphone.MessageWriteActivity;
-import org.linphone.R;
+import mn.mobinet.mnp75.ContactsManager;
+import mn.mobinet.mnp75.LinphoneContact;
+import mn.mobinet.mnp75.LinphoneManager;
+import mn.mobinet.mnp75.LinphoneManager.AddressType;
+import mn.mobinet.mnp75.LinphoneNumberOrAddress;
+import mn.mobinet.mnp75.LinphoneUtils;
+import mn.mobinet.mnp75.MessageWriteActivity;
+import mn.mobinet.mnp75.R;
 import org.linphone.compatibility.Compatibility;
 import org.linphone.ui.AddressText;
 
-import android.content.ContentProviderOperation;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.ImageView.ScaleType;
 import android.widget.ListView;
 
 import com.rey.material.widget.Button;

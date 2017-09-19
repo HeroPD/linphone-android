@@ -21,7 +21,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 import java.util.List;
 
-import org.linphone.R;
+import mn.mobinet.mnp75.R;
 
 import android.app.Fragment;
 import android.os.Bundle;

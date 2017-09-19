@@ -10,11 +10,8 @@ import java.util.List;
 import mn.mobicom.oauth2.OauthRequest;
 import mn.mobicom.oauth2.OauthRequest.RequestType;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.linphone.LinphoneActivity;
-import org.linphone.MessageWriteActivity;
-import org.linphone.R;
+import mn.mobinet.mnp75.MessageWriteActivity;
+import mn.mobinet.mnp75.R;
 import org.linphone.mediastream.Log;
 import org.linphone.ui.Progress;
 

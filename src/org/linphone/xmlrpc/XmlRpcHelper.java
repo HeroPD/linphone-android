@@ -1,7 +1,7 @@
 package org.linphone.xmlrpc;
 
-import org.linphone.LinphoneManager;
-import org.linphone.LinphonePreferences;
+import mn.mobinet.mnp75.LinphoneManager;
+import mn.mobinet.mnp75.LinphonePreferences;
 import org.linphone.core.LinphoneXmlRpcRequest;
 import org.linphone.core.LinphoneXmlRpcRequest.LinphoneXmlRpcRequestListener;
 import org.linphone.core.LinphoneXmlRpcRequestImpl;

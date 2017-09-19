@@ -567,7 +567,7 @@
     <string name="mnp_general">GENERAL</string>
     <string name="mnp_call_through">Call through</string>
     <string name="mnp_calling">Incoming call</string>
-    <string name="mnp_call_center">Call to call center</string>
+    <string name="mnp_call_center">Make a call to Call Center</string>
     <string name="mnp_send_email">Send email</string>
     <string name="mnp_yesterday">yesterday</string>
     <string name="mnp_today">today</string>

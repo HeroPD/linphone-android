@@ -1,6 +1,6 @@
 package org.linphone.assistant;
 
-import org.linphone.R;
+import mn.mobinet.mnp75.R;
 import org.linphone.core.DialPlan;
 
 import android.app.Fragment;

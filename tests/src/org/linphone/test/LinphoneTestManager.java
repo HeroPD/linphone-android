@@ -4,10 +4,10 @@ import java.nio.ByteBuffer;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import org.linphone.LinphoneException;
-import org.linphone.LinphoneManager;
-import org.linphone.LinphoneManager.LinphoneConfigException;
-import org.linphone.LinphoneService;
+import mn.mobinet.mnp75.LinphoneException;
+import mn.mobinet.mnp75.LinphoneManager;
+import mn.mobinet.mnp75.LinphoneManager.LinphoneConfigException;
+import mn.mobinet.mnp75.LinphoneService;
 import org.linphone.core.LinphoneAddress;
 import org.linphone.core.LinphoneAddress.TransportType;
 import org.linphone.core.LinphoneAuthInfo;

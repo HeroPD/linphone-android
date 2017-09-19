@@ -1,7 +1,7 @@
 package mn.mobicom.classes;
 
-import org.linphone.LinphoneLauncherActivity;
-import org.linphone.R;
+import mn.mobinet.mnp75.LinphoneLauncherActivity;
+import mn.mobinet.mnp75.R;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

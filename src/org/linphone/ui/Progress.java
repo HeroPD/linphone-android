@@ -3,7 +3,7 @@
  */
 package org.linphone.ui;
 
-import org.linphone.R;
+import mn.mobinet.mnp75.R;
 
 import android.app.Dialog;
 import android.content.Context;
