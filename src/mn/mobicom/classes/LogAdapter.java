@@ -23,6 +23,7 @@ import org.linphone.ui.AddressText;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract;
@@ -54,12 +55,23 @@ public class LogAdapter extends BaseAdapter{
 		this.mLogs = logs;
 		this.mInflater = inflater;
 	}
-	
+
+	static public boolean hasContactsAccess(Context ctx) {
+		if (ctx == null)
+			return false;
+		int contacts = ctx.getPackageManager().checkPermission(android.Manifest.permission.READ_CONTACTS, ctx.getPackageName());
+		ctx.getPackageManager();
+		return contacts == PackageManager.PERMISSION_GRANTED;
+	}
 	
 	static public LinphoneContact getContactName(Context context, String number) {
 
-	    String name = null;
-	    String id = null;
+	    String name = "";
+	    String id = "";
+
+		if (!hasContactsAccess(context)) {
+			return null;
+		}
 
 	    // define the columns I want the query to return
 	    String[] projection = new String[] {
@@ -81,7 +93,7 @@ public class LogAdapter extends BaseAdapter{
 	        
 	        cursor.close();
 	    }
-	    if (id == null)
+	    if (id.length() == 0 || id == null)
 	    	return null;
 		LinphoneContact lc = new LinphoneContact();
 		lc.setAndroidId(id);

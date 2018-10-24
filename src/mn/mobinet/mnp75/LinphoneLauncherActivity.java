@@ -147,7 +147,11 @@ public class LinphoneLauncherActivity extends Activity {
 					HashMap<String, String> parametr = new HashMap<String, String>();
 					for (String pr : urls2) {
 						String get[] = pr.split("=");
-						parametr.put(get[0], get[1]);
+						if (get.length > 1) {
+							parametr.put(get[0], get[1]);
+						} else if (get.length == 1){
+							parametr.put(get[0], "");
+						}
 					}
 					if (parametr.containsKey("code")) {
 						code = parametr.get("code");
